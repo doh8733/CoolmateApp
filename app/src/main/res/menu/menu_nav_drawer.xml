@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/bill_order_drawer_item"
+        android:icon="@drawable/ic_shopping_toolbar"
+        android:iconTint="@color/white"
+        android:title="@string/don_dat_hang"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/chat_drawer_item"
+        android:icon="@drawable/ic_chat_admin"
+        android:iconTint="@color/white"
+        android:title="@string/chat_vs_admin"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/favorite_drawer_item"
+        android:icon="@drawable/ic_heart_toolbar"
+        android:iconTint="@color/white"
+        android:title="@string/san_pham_yeu_thich"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/location_drawer_item"
+        android:icon="@drawable/ic_position"
+        android:iconTint="@color/white"
+        android:title="@string/dia_chi_giao_hang"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/payment_method_drawer_item"
+        android:icon="@drawable/ic_payment_method2"
+        android:iconTint="@color/white"
+        android:title="@string/phuong_thuc_thanh_toan"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/voucher_drawer_item"
+        android:icon="@drawable/ic_voucher"
+        android:title="@string/ma_giam_gia"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/notification_drawer_item"
+        android:icon="@drawable/ic_bell"
+        android:iconTint="@color/white"
+        android:title="@string/thong_bao"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/helper_drawer_item"
+        android:icon="@drawable/ic_help"
+        android:title="@string/tro_giup"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/info_drawer_item"
+        android:icon="@drawable/ic_about_info"
+        android:title="@string/thong_tin"
+        app:showAsAction="always" />
+</menu>

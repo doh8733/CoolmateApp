@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.OrderActivity">
+
+    <ImageView
+        android:id="@+id/btnBackOrder"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:translationZ="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/ripple_circle"
+        android:src="@drawable/ic_back_button" />
+
+    <TextView
+        android:id="@+id/tvToolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/outfit_regular"
+        android:gravity="center"
+        android:text="Đặt hàng"
+        android:textColor="@color/black"
+        android:translationZ="10dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBackOrder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnBackOrder" />
+
+    <View
+        android:id="@+id/viewToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:elevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" 
+        android:background="@color/white"/>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/viewSubBuy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewToolbar"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#DDDDDD">
+
+            <View
+                android:id="@+id/viewLocation"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="-24dp"
+                android:background="@drawable/custom_payment_bg_btn_white"
+                app:layout_constraintBottom_toBottomOf="@+id/tvAddressOrder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvProductOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewLocation"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_order" />
+
+            <View
+                android:id="@+id/viewVoucher"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/custom_payment_bg_btn_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rcvProductOrder" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Coolmate Voucher"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/viewVoucher"
+                app:layout_constraintStart_toEndOf="@+id/imageView14"
+                app:layout_constraintTop_toBottomOf="@+id/rcvProductOrder" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView27"
+                app:layout_constraintEnd_toEndOf="@+id/viewVoucher"
+                app:layout_constraintTop_toTopOf="@+id/textView27"
+                app:srcCompat="@drawable/ic_arrow_right" />
+
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/viewLocation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/viewLocation"
+                app:srcCompat="@drawable/ic_arrow_right" />
+
+            <View
+                android:id="@+id/viewDetailBill"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="-32dp"
+                android:background="@color/white"
+                android:paddingBottom="32dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView33"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewPTTT" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewPTTT"
+                app:srcCompat="@drawable/ic_bill_loan" 
+                app:tint="@color/red_main"/>
+
+            <TextView
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:id="@+id/textView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Chi tiết thanh toán"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+                app:layout_constraintStart_toEndOf="@+id/imageView10"
+                app:layout_constraintTop_toTopOf="@+id/imageView10" />
+
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/textView29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Tổng tiền hàng"
+                app:layout_constraintStart_toStartOf="@+id/imageView10"
+                app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/textView30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Tổng tiền phí vận chuyển"
+                app:layout_constraintStart_toStartOf="@+id/imageView10"
+                app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Số tiền giảm giá"
+                app:layout_constraintStart_toStartOf="@+id/imageView10"
+                app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/textView33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Tổng thanh toán"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/imageView10"
+                app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/tvTongTienHang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="1,047,000 vnd"
+                android:textAllCaps="true"
+                app:layout_constraintBottom_toBottomOf="@+id/textView29"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView29" />
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="miễn phí"
+                android:textColor="@color/blue_main"
+                app:layout_constraintBottom_toBottomOf="@+id/textView30"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView30" />
+
+            <TextView
+                android:id="@+id/textView36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="0 vnd"
+                android:textAllCaps="true"
+                android:textColor="@color/green_main"
+                app:layout_constraintBottom_toTopOf="@+id/textView33"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView32" />
+
+            <TextView
+                android:id="@+id/tvTongThanhToan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="1,047,000 vnd"
+                android:textAllCaps="true"
+                android:textColor="@color/red_main"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView33"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView33" />
+
+            <View
+                android:id="@+id/viewRule"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="-32dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/textView38"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewDetailBill" />
+
+            <TextView
+                android:id="@+id/textView38"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Nhấn Đặt hàng đồng nghĩa với việc bạn đồng ý tuân theo Điều khoản Coolmate."
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewDetailBill" />
+
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Địa chỉ nhận hàng"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNameAndPhoneOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Ngô Minh Quân | (+84) 356 543 535"
+                android:textColor="@color/black"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/textView39"
+                app:layout_constraintTop_toBottomOf="@+id/textView39" />
+
+            <TextView
+                android:id="@+id/tvPhuongOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Số 98 Vĩnh Hưng"
+                android:textColor="@color/black"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/tvNameAndPhoneOrder"
+                app:layout_constraintTop_toBottomOf="@+id/tvNameAndPhoneOrder" />
+
+            <TextView
+                android:id="@+id/tvAddressOrder"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Phường Vĩnh Hưng, Quân Hoàng Mai, Hà Nội"
+                android:textColor="@color/black"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toStartOf="@+id/imageView11"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tvPhuongOrder"
+                app:layout_constraintTop_toBottomOf="@+id/tvPhuongOrder" />
+
+            <View
+                android:id="@+id/viewPTTT"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="-32dp"
+                android:background="@drawable/custom_payment_bg_btn_white"
+                app:layout_constraintBottom_toBottomOf="@+id/tvZaloPay"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewVoucher" />
+
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:id="@+id/tvTitlePTTT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:drawablePadding="24dp"
+                android:fontFamily="@font/outfit_regular"
+                android:gravity="center_vertical"
+                android:text="Phương thức thanh toán"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgPTTT"
+                app:layout_constraintStart_toEndOf="@+id/imgPTTT"
+                app:layout_constraintTop_toTopOf="@+id/imgPTTT" />
+
+            <ImageView
+                android:id="@+id/imgIconAddressOrder"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/tvAddressOrder"
+                app:layout_constraintStart_toEndOf="@+id/tvNameAndPhoneOrder"
+                app:layout_constraintTop_toTopOf="@+id/textView39"
+                app:srcCompat="@drawable/ic_location"
+                app:tint="@color/red_main" />
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="32dp"
+                app:layout_constraintBottom_toBottomOf="@+id/viewVoucher"
+                app:layout_constraintStart_toStartOf="@+id/viewVoucher"
+                app:layout_constraintTop_toBottomOf="@+id/rcvProductOrder"
+                app:srcCompat="@drawable/ic_voucher"
+                app:tint="@color/red_main" />
+
+            <ImageView
+                android:id="@+id/imgPTTT"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/imageView14"
+                app:layout_constraintTop_toBottomOf="@+id/viewVoucher"
+                app:srcCompat="@drawable/ic_money"
+                app:tint="@color/red_main" />
+
+            <TextView
+                android:id="@+id/tvSubTitlePTTT"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Thanh toán khi nhận hàng"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/imageView9"
+                app:layout_constraintStart_toStartOf="@+id/imgPTTT"
+                app:layout_constraintTop_toBottomOf="@+id/imgPTTT" />
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvZaloPay"
+                app:layout_constraintEnd_toEndOf="@+id/viewVoucher"
+                app:layout_constraintTop_toTopOf="@+id/tvTitlePTTT"
+                app:srcCompat="@drawable/ic_arrow_right" />
+
+            <TextView
+                android:id="@+id/tvZaloPay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/custom_bg_pttt"
+                android:fontFamily="@font/outfit_regular"
+                android:padding="8dp"
+                android:text="Thanh toán dễ dàng hơn với Zalo Pay"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/imageView15"
+                app:layout_constraintStart_toStartOf="@+id/tvSubTitlePTTT"
+                app:layout_constraintTop_toBottomOf="@+id/tvSubTitlePTTT" />
+
+            <TextView
+                android:id="@+id/tvChooseAddressOrder"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Vui lòng chọn địa chỉ nhận hàng"
+                app:layout_constraintBottom_toBottomOf="@+id/viewLocation"
+                app:layout_constraintEnd_toStartOf="@+id/imageView11"
+                app:layout_constraintStart_toStartOf="@+id/textView39"
+                app:layout_constraintTop_toBottomOf="@+id/textView39" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <View
+        android:background="@color/white"
+        android:id="@+id/viewSubBuy"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:translationZ="@dimen/google_1x"
+        android:id="@+id/btnOrderNow"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@drawable/custom_bg_btn_order"
+        android:fontFamily="@font/outfit_regular"
+        android:gravity="center"
+        android:paddingHorizontal="32dp"
+        android:text="Đặt hàng"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/viewSubBuy"
+        app:layout_constraintEnd_toEndOf="@+id/viewSubBuy"
+        app:layout_constraintTop_toTopOf="@+id/viewSubBuy" />
+
+    <TextView
+        android:translationZ="@dimen/google_1x"
+        android:id="@+id/btnOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="Tổng thanh toán"
+        app:layout_constraintBottom_toTopOf="@+id/tvFinalTotalOrder"
+        app:layout_constraintEnd_toStartOf="@+id/btnOrderNow"
+        app:layout_constraintTop_toBottomOf="@+id/viewSubBuy" />
+
+    <TextView
+        android:translationZ="@dimen/google_1x"
+        android:id="@+id/tvFinalTotalOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/outfit_regular"
+        android:text="1,047,000 vnd"
+        android:textAllCaps="true"
+        android:textColor="@color/red_main"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/viewSubBuy"
+        app:layout_constraintEnd_toEndOf="@+id/btnOrder"
+        app:layout_constraintTop_toBottomOf="@+id/btnOrder" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

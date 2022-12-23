@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.LocationActivity">
+
+    <ImageView
+        android:id="@+id/btnBackLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ripple_circle"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back_button" />
+
+    <TextView
+        android:id="@+id/tvTitleToolbarLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/outfit_medium"
+        android:text="@string/gio_hang_cua_toi"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBackLocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnBackLocation" />
+
+    <TextView
+        android:id="@+id/btnGetCurrentLocation"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/custom_bg_btn_blue"
+        android:fontFamily="@font/outfit_regular"
+        android:gravity="center"
+        android:text="Lấy vị trí hiện tại"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="Tỉnh/TP: Vui lòng chọn"
+        app:layout_constraintBottom_toTopOf="@+id/tvDistricts"
+        app:layout_constraintStart_toStartOf="@+id/btnBackLocation"
+        app:layout_constraintTop_toBottomOf="@+id/tvAllAddress" />
+
+    <TextView
+        android:id="@+id/tvDistricts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="Quận/Huyện: Vui lòng chọn"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/tvCommune"
+        app:layout_constraintStart_toStartOf="@+id/tvCity"
+        app:layout_constraintTop_toBottomOf="@+id/tvCity" />
+
+    <TextView
+        android:id="@+id/tvCommune"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="Xã/Phường: Vui lòng chọn"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/rcvAddress"
+        app:layout_constraintStart_toStartOf="@+id/tvDistricts"
+        app:layout_constraintTop_toBottomOf="@+id/tvDistricts" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvAddress"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnGetCurrentLocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCommune"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/edDetail"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/custom_bg_edt"
+        android:ems="10"
+        android:fontFamily="@font/outfit_regular"
+        android:hint="Thôn, xóm, số nhà, tầng,..."
+        android:inputType="textPersonName"
+        android:paddingHorizontal="16dp"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCommune" />
+
+
+    <TextView
+        android:id="@+id/btnFinishedAddAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/bg_btn_red"
+        android:fontFamily="@font/outfit_regular"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
+        android:text="Xong"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitleToolbarLocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvTitleToolbarLocation" />
+
+    <TextView
+        android:id="@+id/btnChonLai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn_history_buying"
+        android:fontFamily="@font/outfit_regular"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
+        android:text="Chọn lại"
+        android:textColor="@color/white"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAllAddress"
+        app:layout_constraintEnd_toEndOf="@+id/btnFinishedAddAddress"
+        app:layout_constraintTop_toTopOf="@+id/tvAllAddress" />
+
+    <TextView
+        android:id="@+id/tvAllAddress"
+        android:layout_width="0dp"
+        android:fontFamily="@font/outfit_regular"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:text="Address"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/btnChonLai"
+        app:layout_constraintStart_toStartOf="@+id/btnBackLocation"
+        app:layout_constraintTop_toBottomOf="@+id/btnBackLocation" />
+
+    <TextView
+        android:id="@+id/btnSuccess"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_btn_history_buying"
+        android:fontFamily="@font/outfit_regular"
+        android:gravity="center"
+        android:text="Hoàn thành"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/edDetail"
+        app:layout_constraintStart_toStartOf="@+id/edDetail"
+        app:layout_constraintTop_toBottomOf="@+id/edDetail" />
+</androidx.constraintlayout.widget.ConstraintLayout>

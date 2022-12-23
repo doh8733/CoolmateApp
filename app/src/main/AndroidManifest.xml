@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.quannm18.coolmateapp">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:name=".MyApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CoolmateApp"
+        android:usesCleartextTraffic="true"
+        android:windowSoftInputMode="stateVisible|adjustResize"
+        tools:targetApi="31">
+        <activity
+            android:name=".view.activity.SuccessBuyingActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.activity.FailedBuyingActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+        </activity>
+        <activity
+            android:name=".view.activity.ChannelActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+        </activity>
+        <activity
+            android:name=".view.activity.FavoriteActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+        </activity>
+        <activity
+            android:name=".view.activity.DetailBillActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.activity.OrderActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="app"
+                    android:scheme="quannm18" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.activity.ReviewActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.activity.WebViewActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.activity.VoucherActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.activity.RegisterActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.activity.LoginActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.activity.NotificationActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.activity.UserActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.activity.PaymentActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.activity.BuyingActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+        </activity>
+        <activity
+            android:name=".view.activity.BillHomeActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.activity.DetailProductActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.activity.CartActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.activity.ChangePasswordActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.activity.HomeActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+        </activity>
+        <activity
+            android:name=".view.activity.SplashActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.activity.LocationActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.activity.LoadingActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+
+        </activity>
+        <activity
+            android:name=".view.activity.MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity
+            android:name=".view.activity.InfoEditActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity
+            android:name=".view.activity.ForgetPasswordActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity
+            android:name=".view.activity.FindActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity
+            android:name=".view.activity.FindBillActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+
+        <service
+            android:name=".service.MyFirebaseMessagingService"
+            android:exported="false">
+            <meta-data
+                android:name="com.google.firebase.messaging.default_notification_channel_id"
+                android:value="@string/default_notification_channel_id" />
+            <meta-data
+                android:name="com.google.firebase.messaging.default_notification_icon"
+                android:resource="@drawable/logo_black_white" />
+            <meta-data
+                android:name="com.google.firebase.messaging.default_notification_color"
+                android:resource="@color/blue_main" />
+            <meta-data
+                android:name="firebase_messaging_auto_init_enabled"
+                android:value="true" />
+            <!-- <meta-data -->
+            <!-- android:name="firebase_analytics_collection_enabled" -->
+            <!-- android:value="false" /> -->
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

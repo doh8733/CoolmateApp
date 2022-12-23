@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <ImageView
+        android:id="@+id/imgScroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_drag_bottom_sheet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:fontFamily="@font/outfit_medium"
+        android:text="Chọn lý do trả hàng"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgScroll" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#F8E8D0"
+        android:fontFamily="@font/outfit_regular"
+        android:padding="24dp"
+        android:text="Vui lòng chọn lý do trả hàng, với lý do này bạn sẽ trả lại tất cả sản phẩm trong đơn hàng. Sau khi chúng tôi nhận sản phẩm và xác nhận, số tiền đã thanh toán sẽ trả về cho bạ"
+        android:textColor="#E1A040"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <RadioGroup
+        android:id="@+id/rdoGroupAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21">
+
+        <RadioButton
+            android:id="@+id/rdoAnswer1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:checked="true"
+            android:fontFamily="@font/outfit_regular"
+            android:text="Chất lượng sản phẩm quá tệ"
+            app:buttonTint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+        <RadioButton
+            android:id="@+id/rdoAnswer2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/outfit_regular"
+            android:text="Sản phẩm bị sai kích thước"
+            app:buttonTint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rdoAnswer1" />
+
+        <RadioButton
+            android:id="@+id/rdoAnswer3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/outfit_regular"
+            android:text="Sản phẩm sai màu"
+            app:buttonTint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rdoAnswer2" />
+
+        <RadioButton
+            android:id="@+id/rdoAnswer4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/outfit_regular"
+            android:text="Số lượng sản phẩm bị sai"
+            app:buttonTint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rdoAnswer3" />
+
+        <RadioButton
+            android:id="@+id/rdoAnswer5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/outfit_regular"
+            android:text="Khác"
+            app:buttonTint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rdoAnswer3" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/edtAnswer"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_review"
+        android:fontFamily="@font/outfit_regular"
+        android:gravity="start"
+        android:hint="Nêu chi tiết lý do!"
+        android:inputType="textPersonName"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:scrollbars="horizontal"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/rdoGroupAnswer"
+        app:layout_constraintStart_toStartOf="@+id/rdoGroupAnswer"
+        app:layout_constraintTop_toBottomOf="@+id/rdoGroupAnswer" />
+
+
+    <TextView
+        android:id="@+id/btnAgree"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_btn_red"
+        android:fontFamily="@font/outfit_regular"
+        android:gravity="center"
+        android:text="Đồng ý"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edtAnswer"
+        app:layout_constraintStart_toStartOf="@+id/edtAnswer"
+        app:layout_constraintTop_toBottomOf="@+id/edtAnswer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

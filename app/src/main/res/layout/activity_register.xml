@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/activity_register_scene"
+    tools:ignore="ScrollViewSize">
+
+    <View
+        android:id="@+id/bgHeaderRegister"
+        android:layout_width="0dp"
+        android:layout_height="360dp"
+        android:background="@drawable/bg_header_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/bgSubRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_sub_item_buying"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRegister" />
+
+    <ImageView
+        android:id="@+id/imgSubItemHeader"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/subitem_bg_header_login"
+        app:layout_constraintBottom_toTopOf="@+id/bgSubRegister"
+        app:layout_constraintEnd_toEndOf="@+id/bgHeaderRegister"
+        app:layout_constraintStart_toStartOf="@+id/bgHeaderRegister"
+        app:layout_constraintTop_toTopOf="@+id/bgHeaderRegister" />
+
+    <ImageView
+        app:tint="@color/white"
+        android:id="@+id/imgBack"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/ripple_circle"
+        android:padding="8dp"
+        android:src="@drawable/ic_back_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitleRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="42dp"
+        android:fontFamily="@font/outfit_medium"
+        android:text="@string/register_text1"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBack" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/outfit_light"
+        android:text="@string/register_text2"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/tvTitleRegister"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleRegister" />
+
+    <TextView
+        android:id="@+id/tvLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/ripple_circle"
+        android:fontFamily="@font/outfit_light"
+        android:padding="2dp"
+        android:text="@string/register_text3"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="74dp"
+        android:fontFamily="@font/outfit_light"
+        android:text="@string/register_text4"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/outfit_medium"
+        android:text="@string/register_name"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bgSubRegister" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilUserName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Nhập họ tên của bạn"
+        android:textColorHint="#AEAEAE"
+        app:boxCornerRadiusBottomEnd="56dp"
+        app:boxCornerRadiusBottomStart="56dp"
+        app:boxCornerRadiusTopEnd="56dp"
+        app:boxCornerRadiusTopStart="56dp"
+        app:boxStrokeColor="@color/blue_main"
+        app:boxStrokeErrorColor="@color/blue_main"
+        app:hintTextColor="@color/hint_text"
+        app:layout_constraintEnd_toEndOf="@+id/tvUserName"
+        app:layout_constraintStart_toStartOf="@+id/tvUserName"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+        app:startIconDrawable="@drawable/ic_user">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/outfit_medium"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEmail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Nhập email của bạn"
+        android:textColorHint="#AEAEAE"
+        app:boxCornerRadiusBottomEnd="56dp"
+        app:boxCornerRadiusBottomStart="56dp"
+        app:boxCornerRadiusTopEnd="56dp"
+        app:boxCornerRadiusTopStart="56dp"
+        app:boxStrokeColor="@color/blue_main"
+        app:boxStrokeErrorColor="@color/blue_main"
+        app:hintTextColor="@color/hint_text"
+        app:layout_constraintEnd_toEndOf="@+id/tilUserName"
+        app:layout_constraintStart_toStartOf="@+id/tilUserName"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailRegister"
+        app:startIconDrawable="@drawable/ic_mail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/outfit_medium"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvEmailRegister"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="45dp"
+        android:fontFamily="@font/outfit_medium"
+        android:text="Email"
+        android:textColor="@color/black"
+        android:textColorHint="#AEAEAE"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tilUserName"
+        app:layout_constraintStart_toStartOf="@+id/tilUserName"
+        app:layout_constraintTop_toBottomOf="@+id/tilUserName" />
+
+    <TextView
+        android:id="@+id/tvPasswordRegister"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/outfit_medium"
+        android:text="Mật khẩu"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/tilEmail"
+        app:layout_constraintStart_toStartOf="@+id/tilEmail"
+        app:layout_constraintTop_toBottomOf="@+id/tilEmail" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Nhập mật khẩu"
+        android:textColorHint="#AEAEAE"
+        app:boxCornerRadiusBottomEnd="56dp"
+        app:boxCornerRadiusBottomStart="56dp"
+        app:boxCornerRadiusTopEnd="56dp"
+        app:boxCornerRadiusTopStart="56dp"
+        app:boxStrokeColor="@color/blue_main"
+        app:boxStrokeErrorColor="@color/blue_main"
+        app:hintTextColor="@color/hint_text"
+        app:layout_constraintEnd_toEndOf="@+id/tvPasswordRegister"
+        app:layout_constraintStart_toStartOf="@+id/tvPasswordRegister"
+        app:layout_constraintTop_toBottomOf="@+id/tvPasswordRegister"
+        app:startIconDrawable="@drawable/ic_lock"
+        app:endIconMode="password_toggle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/outfit_medium"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvRetypePasswordRegister"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/outfit_medium"
+        android:text="Nhập lại mật khẩu"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tilPassword"
+        app:layout_constraintStart_toStartOf="@+id/tilPassword"
+        app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilReInputPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Nhập lại mật khẩu"
+        android:textColorHint="#AEAEAE"
+        app:boxCornerRadiusBottomEnd="56dp"
+        app:boxCornerRadiusBottomStart="56dp"
+        app:boxCornerRadiusTopEnd="56dp"
+        app:boxCornerRadiusTopStart="56dp"
+        app:boxStrokeColor="@color/blue_main"
+        app:boxStrokeErrorColor="@color/blue_main"
+        app:hintTextColor="@color/hint_text"
+        app:layout_constraintEnd_toEndOf="@+id/tvRetypePasswordRegister"
+        app:layout_constraintStart_toStartOf="@+id/tvRetypePasswordRegister"
+        app:layout_constraintTop_toBottomOf="@+id/tvRetypePasswordRegister"
+        app:startIconDrawable="@drawable/ic_lock"
+        app:endIconMode="password_toggle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/outfit_medium"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/btnRegister"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/custom_bg_btn_blue"
+        android:fontFamily="@font/outfit_light"
+        android:gravity="center"
+        android:text="Đăng ký"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tilReInputPassword"
+        app:layout_constraintStart_toStartOf="@+id/tilReInputPassword"
+        app:layout_constraintTop_toBottomOf="@+id/tilReInputPassword" />
+
+    <TextView
+        android:id="@+id/tvFooter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/outfit_light"
+        android:gravity="center"
+        android:text="Bằng cách đăng ký sử dụng ứng dụng, bạn đã đồng ý cho phép chúng tôi gửi email đến của bạn "
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnRegister"
+        app:layout_constraintStart_toStartOf="@+id/btnRegister"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

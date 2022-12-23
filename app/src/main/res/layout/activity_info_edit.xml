@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.InfoEditActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="ScrollViewSize">
+
+        <ImageView
+            android:id="@+id/imgBg"
+            android:layout_width="0dp"
+            android:layout_height="277dp"
+            android:scaleType="fitXY"
+            android:tintMode="multiply"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bg_info_edit" />
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/ic_back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvSubDescriptionUserInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/outfit_medium"
+            android:text="@string/text_info_edit"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/viewSub"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgBack"
+            app:layout_constraintVertical_bias="0.7" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/viewSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-32dp"
+            android:background="@drawable/bg_sub_item_buying"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgBg">
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/outfit_medium"
+                android:text="@string/register_name"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvGender"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/outfit_medium"
+                android:text="Giới tính"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/tilUserName"
+                app:layout_constraintStart_toStartOf="@+id/tilUserName"
+                app:layout_constraintTop_toBottomOf="@+id/tilUserName" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilUserName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Nhập họ tên của bạn"
+                app:boxCornerRadiusBottomEnd="26dp"
+                app:boxCornerRadiusBottomStart="26dp"
+                app:boxCornerRadiusTopEnd="26dp"
+                app:boxCornerRadiusTopStart="26dp"
+                app:boxStrokeColor="#6342E8"
+                app:boxStrokeErrorColor="#6342E8"
+                app:layout_constraintEnd_toEndOf="@+id/tvUserName"
+                app:layout_constraintStart_toStartOf="@+id/tvUserName"
+                app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+                app:startIconDrawable="@drawable/ic_user">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/outfit_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="45dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvGender">
+
+                <RadioButton
+                    android:id="@+id/rdoNam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:fontFamily="@font/outfit_medium"
+                    android:text="Nam"
+                    android:textColor="@color/black" />
+
+                <RadioButton
+                    android:id="@+id/rdoNu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/outfit_medium"
+                    android:text="Nữ" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tvBirthday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/outfit_medium"
+                android:text="Ngày sinh"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+                app:layout_constraintStart_toStartOf="@+id/radioGroup"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilBirthday"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Chọn ngày sinh"
+                app:boxCornerRadiusBottomEnd="26dp"
+                app:boxCornerRadiusBottomStart="26dp"
+                app:boxCornerRadiusTopEnd="26dp"
+                app:boxCornerRadiusTopStart="26dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvBirthday"
+                app:layout_constraintStart_toStartOf="@+id/tvBirthday"
+                app:layout_constraintTop_toBottomOf="@+id/tvBirthday"
+                app:startIconDrawable="@drawable/ic_mail">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:fontFamily="@font/outfit_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Nhập mật khẩu"
+                app:boxCornerRadiusBottomEnd="26dp"
+                app:boxCornerRadiusBottomStart="26dp"
+                app:boxCornerRadiusTopEnd="26dp"
+                app:boxCornerRadiusTopStart="26dp"
+                app:boxStrokeColor="#6342E8"
+                app:boxStrokeErrorColor="#6342E8"
+                app:layout_constraintEnd_toEndOf="@+id/textView8"
+                app:layout_constraintStart_toStartOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/textView8"
+                app:startIconDrawable="@drawable/ic_lock">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/outfit_medium"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/outfit_medium"
+                android:text="Password"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/tilBirthday"
+                app:layout_constraintStart_toStartOf="@+id/tilBirthday"
+                app:layout_constraintTop_toBottomOf="@+id/tilBirthday" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/outfit_medium"
+                android:text="Số điện thoại"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/tilPassword"
+                app:layout_constraintStart_toStartOf="@+id/tilPassword"
+                app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/ccp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:saveEnabled="false"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPhoneNumber"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Nhập số điện thoại"
+                app:boxCornerRadiusBottomEnd="26dp"
+                app:boxCornerRadiusBottomStart="26dp"
+                app:boxCornerRadiusTopEnd="26dp"
+                app:boxCornerRadiusTopStart="26dp"
+                app:boxStrokeColor="#6342E8"
+                app:boxStrokeErrorColor="#6342E8"
+                app:layout_constraintEnd_toEndOf="@+id/textView9"
+                app:layout_constraintStart_toStartOf="@+id/textView9"
+                app:layout_constraintTop_toBottomOf="@+id/textView9"
+                app:startIconDrawable="@drawable/ic_vector_phone">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/outfit_medium"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvAdress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/outfit_medium"
+                android:text="Địa chỉ"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/tilPhoneNumber"
+                app:layout_constraintStart_toStartOf="@+id/tilPhoneNumber"
+                app:layout_constraintTop_toBottomOf="@+id/tilPhoneNumber" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilAddress"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Nhập địa chỉ"
+                app:boxCornerRadiusBottomEnd="26dp"
+                app:boxCornerRadiusBottomStart="26dp"
+                app:boxCornerRadiusTopEnd="26dp"
+                app:boxCornerRadiusTopStart="26dp"
+                app:boxStrokeColor="#6342E8"
+                app:boxStrokeErrorColor="#6342E8"
+                app:layout_constraintEnd_toEndOf="@+id/tvAdress"
+                app:layout_constraintStart_toStartOf="@+id/tvAdress"
+                app:layout_constraintTop_toBottomOf="@+id/tvAdress"
+                app:startIconDrawable="@drawable/ic_vector_adress">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/outfit_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/btnEditUser"
+                android:layout_width="0dp"
+                android:layout_height="54dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/bg_btn_history_buying"
+                android:fontFamily="@font/outfit_light"
+                android:gravity="center"
+                android:text="Xác nhận"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textView10"
+                app:layout_constraintStart_toStartOf="@+id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/outfit_light"
+                android:text="@string/text_info_edit2"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/tilAddress"
+                app:layout_constraintStart_toStartOf="@+id/tilAddress"
+                app:layout_constraintTop_toBottomOf="@+id/tilAddress" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvTitleEditInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thay đổi thông tin"
+            android:fontFamily="@font/outfit_medium"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imgBack" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

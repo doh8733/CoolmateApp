@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">CoolmateApp</string>
+    <string name="mua_s_m_ngay">Mua sắm ngay</string>
+    <string name="coolmate">Coolmate</string>
+    <string name="create_your_fashion_in_your_own_way">Create your fashion in your own way</string>
+    <string name="tho_i_m_i_h_n_ti_n_l_i_h_n_h_p_l_h_n">Thoải mái hơn - Tiện lợi hơn - Hợp lý hơn</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="noi_bat">Nổi bật</string>
+    <string name="hot">HOT</string>
+    <string name="giam_gia">Giảm giá</string>
+    <string name="kham_pha">Khám phá</string>
+    <string name="gio_hang_cua_toi">Giỏ hàng của tôi</string>
+    <string name="notification">Notification</string>
+    <string name="cart">Cart</string>
+    <string name="favorite">Favorite</string>
+    <string name="menu">Menu</string>
+    <string name="search">Search</string>
+    <string name="o_polo_nam_pique_cotton">Áo Polo nam Pique Cotton</string>
+    <string name="coolmate_collections">Coolmate Collections</string>
+    <string name="_329_000_vnd">329.000 vnd</string>
+    <string name="_1">1</string>
+    <string name="o_polo_nam_anti_smell">Áo Polo nam Anti-Smell</string>
+    <string name="n_h_ng_c_a_b_n_ang_c_x_l">Đơn hàng của bạn đang được xử lý</string>
+    <string name="ang_x_l">Đang xử lý</string>
+    <string name="ang_v_n_chuy_n_t_kho">Đang vận chuyển từ kho</string>
+    <string name="coolmate_mens">Coolmate Mens</string>
+    <string name="d_ki_n_tr_c_17h00_16_10_2022">Dự kiến trước 17h00 16/10/2022</string>
+    <string name="xem_l_ch_s">Xem lịch sử</string>
+    <string name="ch_ng_t_i_s_g_i_cho_b_n_khi_n_h_ng_n_n_i">Chúng tôi sẽ gọi cho bạn khi đơn hàng đến nơi</string>
+    <string name="thanh_to_n">Đã thanh toán</string>
+    <string name="d_li_u_c_a_b_n_lu_n_c_b_o_m_t">Dữ liệu của bạn luôn được bảo mật</string>
+    <string name="i_m_t_kh_u">Đổi mật khẩu</string>
+    <string name="description">Mô tả</string>
+    <string name="ch_t_li_u_97_cotton_usa_3_spandex_v_i_ch_t_li_u_cotton_usa_ch_t_l_ng_cao_mang_l_i_s_m_m_m_i_v_th_m_h_t_m_h_i_t_t_co_gi_n_4_chi_u_mang_l_i_s_tho_i_m_i_khi_m_c_bo_c_d_t_b_ng_s_i_cotton_vi_n_ph_i_polyester_detail">Chất liệu: 97% Cotton USA + 3% Spandex Với chất liệu Cotton USA chất lượng cao, mang lại sự mềm mại và thấm hút mồ hôi tốt Co giãn 4 chiều mang lại sự thoải mái khi mặc Bo cổ dệt bằng sợi Cotton, viền phối Polyester</string>
+    <string name="ch_n_k_ch_th_c">Chọn kích thước</string>
+    <string name="th_m_v_o_gi_h_ng">Thêm vào giỏ hàng</string>
+    <string name="th_ng_b_o">Thông báo</string>
+    <string name="filter">Filter  &amp; Sort</string>
+    <string name="default_notification_channel_id">888</string>
+
+    <string name="login_text1">CHÀO MỪNG BẠN ĐÃ QUAY TRỞ LẠI!!!</string>
+    <string name="login_text2">
+        <item>Yay! Bạn đã quay trở lại rôi! Cảm ơn đã mua sắm với chúng tôi!\n</item>
+        <item>Chúng tôi có các chương trình khuyến mãi và giao dịch hấp dẫn đang diễn ra,hãy chọn ngay!</item>
+    </string>
+    <string name="login_text3">Đăng nhập</string>
+    <string name="register_text1">Bắt đầu với Coolmate</string>
+    <string name="register_text2">Đã có tài khoản?</string>
+    <string name="register_text3">Đăng nhập ngay</string>
+    <string name="register_text4">Đăng ký</string>
+    <string name="register_name">Họ và tên của bạn</string>
+    <string name="register_email">Email</string>
+    <string name="register_password">Mật khẩu</string>
+    <string name="register_text8">Đăng ký</string>
+
+    <string name="text_kham_pha">Khám phá</string>
+    <string name="text_des">Lấy cảm hứng từ chính những hình ảnh anh chị công nhân trong ngành may mặc, Coolmate muốn lan tỏa câu chuyện tự hào của mỗi cá nhân trong từng khâu trong ngành may mặc này để tạo ra những sản phẩm cuối cùng đến tay khách hàng.</string>
+    <string name="text_forget_password">Sau khi kiểm tra chúng tôi sẽ gử mã xác minh đến email của bạn\nVui lòng kiểm tra email của bạn.</string>
+    <string name="text_info_edit">Chỉnh sửa các thông tin \ncá nhân của bạn</string>
+    <string name="text_info_edit2">Thông tin của khách hàng có thể được bảo mật an toàn</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="vui_l_ng_nh_p_m_t_kh_u">Vui lòng nhập mật khẩu</string>
+    <string name="log_out">Đăng xuất</string>
+    <string name="don_dat_hang">Đơn đặt hàng</string>
+    <string name="san_pham_yeu_thich">Sản phẩm yêu thích</string>
+    <string name="dia_chi_giao_hang">Địa chỉ giao hàng</string>
+    <string name="phuong_thuc_thanh_toan">Phương thức thanh toán</string>
+    <string name="ma_giam_gia">Mã giảm giá</string>
+    <string name="thong_bao">Thông báo</string>
+    <string name="tro_giup">Trợ giúp - Phản hồi - Khiếu nại</string>
+    <string name="thong_tin">Thông tin</string>
+    <string name="drawer_open">Xem cửa sổ chức năng</string>
+    <string name="drawer_close">Đóng cửa sổ chức năng</string>
+    <string name="chat_vs_admin">Chat với admin</string>
+    <string name="xac_nhan">Xác nhận</string>
+    <string name="dang_giao">Đang giao</string>
+    <string name="da_giao">Đã giao</string>
+    <string name="da_huy">Đã hủy</string>
+
+</resources>

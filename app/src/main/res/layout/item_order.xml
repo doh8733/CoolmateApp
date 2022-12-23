@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="146dp"
+    android:background="@color/white"
+    android:layout_marginTop="8dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgItemOrder"
+        android:layout_width="84dp"
+        android:layout_height="120dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/excoolsomixam"
+        app:shapeAppearanceOverlay="@style/roundedImageView28dp"
+        android:layout_marginStart="28dp"
+        android:background="@android:color/transparent"
+        android:elevation="16dp"/>
+
+    <TextView
+        android:id="@+id/tvNameProductOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgItemOrder"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="32dp"
+        android:layout_toEndOf="@+id/imgItemOrder"
+        android:fontFamily="@font/outfit_bold"
+        android:maxLines="2"
+        android:text="@string/o_polo_nam_pique_cotton"
+        android:textColor="@color/blue_main"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvSubTitleOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvNameProductOrder"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:layout_toEndOf="@+id/imgItemOrder"
+        android:fontFamily="@font/outfit_light"
+        android:maxLines="1"
+        android:text="Phân loại: Xanh, L"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvTotalOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvSubTitleOrder"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toStartOf="@+id/tvCountOrder"
+        android:layout_toEndOf="@+id/imgItemOrder"
+        android:fontFamily="@font/outfit_semibold"
+        android:maxLines="1"
+        android:text="@string/_329_000_vnd"
+        android:textAllCaps="true"
+        android:textColor="@color/red_main"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvCountOrder"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="24dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/ripple_normal"
+        android:gravity="center"
+        android:text="x1"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/black" />
+</RelativeLayout>

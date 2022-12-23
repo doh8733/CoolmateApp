@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/activity_buying_scene"
+    tools:context=".view.activity.BuyingActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/header_buying" />
+
+    <View
+        android:id="@+id/viewSub"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="-60dp"
+        android:background="@drawable/bg_sub_item_buying"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/btnBackBuying"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/ripple_normal"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back_button" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="@string/coolmate_mens"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewSub" />
+
+    <TextView
+        android:id="@+id/tvNameBill"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/outfit_bold"
+        android:text="@string/o_polo_nam_pique_cotton"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvPriceBill"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/tvPriceBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/outfit_bold"
+        android:text="@string/_329_000_vnd"
+        android:textColor="@color/red_main"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNameBill"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvNameBill" />
+
+    <CheckBox
+        android:enabled="false"
+        android:id="@+id/chkDangXuLy"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/custom_checked_buying"
+        android:button="@android:color/transparent"
+        android:checked="true"
+        app:layout_constraintStart_toStartOf="@+id/tvNameBill"
+        app:layout_constraintTop_toBottomOf="@+id/tvNameBill"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/tvProcessDangXuLy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="@string/n_h_ng_c_a_b_n_ang_c_x_l"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/progressBarDangXuLy"
+        app:layout_constraintStart_toEndOf="@+id/chkDangXuLy"
+        app:layout_constraintTop_toTopOf="@+id/chkDangXuLy" />
+
+    <ImageView
+        android:id="@+id/icProcessDangXuLy"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/chkDangXuLy"
+        app:layout_constraintStart_toStartOf="@+id/tvProcessDangXuLy"
+        app:layout_constraintTop_toBottomOf="@+id/tvProcessDangXuLy"
+        app:srcCompat="@drawable/ic_buying_pc1" />
+
+    <TextView
+        android:id="@+id/tvSubProcessDangXuLy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="@string/ang_x_l"
+        android:textColor="@color/green_main"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/icProcessDangXuLy"
+        app:layout_constraintEnd_toEndOf="@+id/tvProcessDangXuLy"
+        app:layout_constraintStart_toEndOf="@+id/icProcessDangXuLy"
+        app:layout_constraintTop_toTopOf="@+id/icProcessDangXuLy" />
+
+    <ImageView
+        android:id="@+id/barrier1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/chkDangXuLy"
+        app:layout_constraintStart_toStartOf="@+id/chkDangXuLy"
+        app:layout_constraintTop_toBottomOf="@+id/chkDangXuLy"
+        app:srcCompat="@drawable/buying_barier" />
+
+    <CheckBox
+        android:enabled="false"
+        android:id="@+id/chkDangDongGoi"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_checked_buying"
+        android:button="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="@+id/tvNameBill"
+        app:layout_constraintTop_toBottomOf="@+id/barrier1"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/tvProcessDangDongGoi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="Đơn hàng đang được đóng gói"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/progressBarDangDongGoi"
+        app:layout_constraintStart_toEndOf="@+id/chkDangDongGoi"
+        app:layout_constraintTop_toTopOf="@+id/chkDangDongGoi" />
+
+    <ImageView
+        android:id="@+id/icProcessDangDongGoi"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/chkDangDongGoi"
+        app:layout_constraintStart_toStartOf="@+id/tvProcessDangDongGoi"
+        app:layout_constraintTop_toBottomOf="@+id/tvProcessDangDongGoi"
+        app:srcCompat="@drawable/ic_buying_pc2" />
+
+    <TextView
+        android:id="@+id/tvSubProcessDangDongGoi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="Đơn hàng đang đóng gói"
+        android:textColor="@color/red_main"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/icProcessDangDongGoi"
+        app:layout_constraintEnd_toEndOf="@+id/tvProcessDangDongGoi"
+        app:layout_constraintStart_toEndOf="@+id/icProcessDangDongGoi"
+        app:layout_constraintTop_toTopOf="@+id/icProcessDangDongGoi" />
+
+    <ImageView
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/chkDangXuLy"
+        app:layout_constraintStart_toStartOf="@+id/chkDangXuLy"
+        app:layout_constraintTop_toBottomOf="@+id/chkDangDongGoi"
+        app:srcCompat="@drawable/buying_barier" />
+
+    <CheckBox
+        android:enabled="false"
+        android:id="@+id/chkDangGiao"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_checked_buying"
+        android:button="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="@+id/chkDangXuLy"
+        app:layout_constraintTop_toBottomOf="@+id/barrier2"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/tvProcessDangGiao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="Đơn hàng của bạn đang được giao"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/progressBarDangGiao"
+        app:layout_constraintStart_toEndOf="@+id/chkDangGiao"
+        app:layout_constraintTop_toTopOf="@+id/chkDangGiao" />
+
+    <ImageView
+        android:id="@+id/icProcessDangGiao"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/chkDangGiao"
+        app:layout_constraintStart_toStartOf="@+id/tvProcessDangGiao"
+        app:layout_constraintTop_toBottomOf="@+id/tvProcessDangGiao"
+        app:srcCompat="@drawable/ic_buying_pc2" />
+
+    <TextView
+        android:id="@+id/tvSubProcessDangGiao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="@string/ang_v_n_chuy_n_t_kho"
+        android:textColor="@color/red_main"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/icProcessDangGiao"
+        app:layout_constraintEnd_toEndOf="@+id/tvProcessDangGiao"
+        app:layout_constraintStart_toEndOf="@+id/icProcessDangGiao"
+        app:layout_constraintTop_toTopOf="@+id/icProcessDangGiao" />
+
+    <CheckBox
+        android:enabled="false"
+        android:id="@+id/chkDaGiao"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_checked_buying"
+        android:button="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="@+id/chkDangXuLy"
+        app:layout_constraintTop_toBottomOf="@+id/barrier3"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/tvProcessDaGiao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="Đơn hàng đã được giao"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/progressBarDaDuocGiao"
+        app:layout_constraintStart_toEndOf="@+id/chkDaGiao"
+        app:layout_constraintTop_toTopOf="@+id/chkDaGiao" />
+
+    <ImageView
+        android:id="@+id/icProcessDaGiao"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/chkDaGiao"
+        app:layout_constraintStart_toStartOf="@+id/tvProcessDaGiao"
+        app:layout_constraintTop_toBottomOf="@+id/tvProcessDaGiao"
+        app:srcCompat="@drawable/ic_buying_pc3" />
+
+    <ImageView
+        android:id="@+id/barrier3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/chkDangDongGoi"
+        app:layout_constraintStart_toStartOf="@+id/chkDangDongGoi"
+        app:layout_constraintTop_toBottomOf="@+id/chkDangGiao"
+        app:srcCompat="@drawable/buying_barier" />
+
+    <ImageView
+        android:id="@+id/barrier5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/chkDangXuLy"
+        app:layout_constraintStart_toStartOf="@+id/chkDangXuLy"
+        app:layout_constraintTop_toBottomOf="@+id/chkDaGiao"
+        app:srcCompat="@drawable/buying_barier" />
+
+    <CheckBox
+        android:enabled="false"
+        android:id="@+id/chkTraHang"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_checked_buying"
+        android:button="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="@+id/chkDangXuLy"
+        app:layout_constraintTop_toBottomOf="@+id/barrier5"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/tvProcessTraHang"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="Yêu cầu đổi / trả hàng"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/progressBarTraHang"
+        app:layout_constraintStart_toEndOf="@+id/chkTraHang"
+        app:layout_constraintTop_toTopOf="@+id/chkTraHang" />
+
+    <ImageView
+        android:id="@+id/icProcessTraHang"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/chkTraHang"
+        app:layout_constraintStart_toStartOf="@+id/tvProcessTraHang"
+        app:layout_constraintTop_toBottomOf="@+id/tvProcessTraHang"
+        app:srcCompat="@drawable/ic_buying_pc4" />
+
+    <TextView
+        android:id="@+id/tvXemLichSu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:background="@drawable/bg_btn_history_buying"
+        android:fontFamily="@font/outfit_regular"
+        android:padding="3dp"
+        android:text="Xem lịch sử"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/icProcessDaGiao"
+        app:layout_constraintStart_toEndOf="@+id/icProcessDaGiao"
+        app:layout_constraintTop_toTopOf="@+id/icProcessDaGiao" />
+
+    <TextView
+        android:id="@+id/tvXemTinhTrangDoiTra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:background="@drawable/bg_btn_history_buying"
+        android:fontFamily="@font/outfit_regular"
+        android:padding="3dp"
+        android:text="Xem tình trạng"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/chkTraHang"
+        app:layout_constraintStart_toEndOf="@+id/icProcessTraHang"
+        app:layout_constraintTop_toBottomOf="@+id/tvProcessTraHang" />
+
+    <TextView
+        android:id="@+id/tvDescriptionBill"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/outfit_medium"
+        android:lines="2"
+        android:text="@string/ch_ng_t_i_s_g_i_cho_b_n_khi_n_h_ng_n_n_i"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/chkDangXuLy"
+        app:layout_constraintTop_toBottomOf="@+id/chkTraHang"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/btnActionBill"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/bg_btn_history_buying"
+        android:fontFamily="@font/outfit_medium"
+        android:gravity="center"
+        android:padding="8dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/thanh_to_n"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDescriptionBill"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvDescriptionBill"
+        app:layout_constraintTop_toTopOf="@+id/tvDescriptionBill" />
+
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBarDangDongGoi"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:indeterminateTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/chkDangDongGoi"
+        app:layout_constraintEnd_toEndOf="@+id/progressBarDangXuLy"
+        app:layout_constraintTop_toTopOf="@+id/chkDangDongGoi" />
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBarDangXuLy"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:indeterminateTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/chkDangXuLy"
+        app:layout_constraintEnd_toEndOf="@+id/tvPriceBill"
+        app:layout_constraintTop_toTopOf="@+id/chkDangXuLy" />
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBarDangGiao"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:indeterminateTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/chkDangGiao"
+        app:layout_constraintEnd_toEndOf="@+id/progressBarDangDongGoi"
+        app:layout_constraintTop_toTopOf="@+id/chkDangGiao" />
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBarDaDuocGiao"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:indeterminateTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/chkDaGiao"
+        app:layout_constraintEnd_toEndOf="@+id/progressBarDangDongGoi"
+        app:layout_constraintTop_toTopOf="@+id/chkDaGiao" />
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBarTraHang"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:indeterminateTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/chkTraHang"
+        app:layout_constraintEnd_toEndOf="@+id/progressBarDangDongGoi"
+        app:layout_constraintTop_toTopOf="@+id/chkTraHang" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

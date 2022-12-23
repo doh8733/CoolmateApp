@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.CartActivity"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/btnBackCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ripple_circle"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back_button" />
+
+    <TextView
+        android:id="@+id/tvTitleToolbarCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/outfit_medium"
+        android:text="@string/gio_hang_cua_toi"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBackCart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnBackCart" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="0dp"
+        android:id="@+id/swipeRcvCart"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnOrderCart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBackCart"
+        app:layout_constraintVertical_bias="0.5">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvCart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/btnOrderCart"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/custom_bg_btn_solid_black"
+        android:fontFamily="@font/outfit_regular"
+        android:gravity="center"
+        android:paddingLeft="40dp"
+        android:drawableStart="@drawable/ic_btn_thanh_toan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTotalCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_txt_background_white_border_4px"
+        android:fontFamily="@font/outfit_bold"
+        android:padding="4dp"
+        android:text="$135.45"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/btnOrderCart"
+        app:layout_constraintEnd_toEndOf="@+id/btnOrderCart"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView62"
+        app:layout_constraintTop_toTopOf="@+id/btnOrderCart" />
+
+    <TextView
+        android:id="@+id/textView62"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="Thanh toán"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btnOrderCart"
+        app:layout_constraintEnd_toEndOf="@+id/btnOrderCart"
+        app:layout_constraintStart_toStartOf="@+id/btnOrderCart"
+        app:layout_constraintTop_toTopOf="@+id/btnOrderCart" />
+</androidx.constraintlayout.widget.ConstraintLayout>

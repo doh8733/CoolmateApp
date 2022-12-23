@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.NotificationActivity">
+
+    <ImageView
+        android:id="@+id/btnBackBuying"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/ripple_circle"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_back_button" />
+
+    <TextView
+        android:id="@+id/tvTitleToolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/outfit_medium"
+        android:text="@string/th_ng_b_o"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBackBuying"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnBackBuying" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvNotification"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBackBuying"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/viewBoxEndListNoti"
+        android:layout_width="match_parent"
+        android:layout_height="94dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rcvNotification" />
+
+    <ImageView
+        android:id="@+id/imgLogoEndList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBoxEndListNoti"
+        app:layout_constraintEnd_toEndOf="@id/viewBoxEndListNoti"
+        app:layout_constraintStart_toStartOf="@id/viewBoxEndListNoti"
+        app:layout_constraintTop_toTopOf="@+id/viewBoxEndListNoti"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_bell_noti" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:elevation="8dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="Thông báo của bạn sẽ xuất hiện ở đây"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBoxEndListNoti"
+        app:layout_constraintEnd_toEndOf="@+id/imgLogoEndList"
+        app:layout_constraintStart_toStartOf="@+id/imgLogoEndList"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogoEndList"
+        app:layout_constraintVertical_bias="1.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

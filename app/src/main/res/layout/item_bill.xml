@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="8dp"
+    android:background="@drawable/custom_bg_item_bill"
+    android:layout_margin="8dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgItemOrder"
+        android:layout_width="84dp"
+        android:layout_height="120dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:elevation="16dp"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/roundedImageView6dp" />
+
+    <TextView
+        android:id="@+id/tvNameProductOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgItemOrder"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="32dp"
+        android:layout_toEndOf="@+id/imgItemOrder"
+        android:fontFamily="@font/outfit_bold"
+        android:maxLines="2"
+        android:text="@string/o_polo_nam_pique_cotton"
+        android:textColor="@color/blue_main"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvSubTitleOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvNameProductOrder"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:layout_toEndOf="@+id/imgItemOrder"
+        android:fontFamily="@font/outfit_light"
+        android:maxLines="1"
+        android:text="Phân loại: Xanh, L"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvTotalOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvSubTitleOrder"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toStartOf="@+id/tvCountOrder"
+        android:layout_toEndOf="@+id/imgItemOrder"
+        android:fontFamily="@font/outfit_semibold"
+        android:maxLines="1"
+        android:text="@string/_329_000_vnd"
+        android:textAllCaps="true"
+        android:textColor="@color/red_main"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvCountOrder"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignBottom="@+id/imgItemOrder"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/ripple_normal"
+        android:gravity="center"
+        android:text="x1"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:layout_marginHorizontal="8dp"
+        android:background="@drawable/custom_btn_text_border"
+        android:elevation="8dp"
+        android:id="@+id/textView43"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@+id/imgItemOrder"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/outfit_regular"
+        android:gravity="center_vertical"
+        android:text="Giao hàng thành công"
+        android:paddingHorizontal="16dp"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:drawableTint="@color/green_main"
+        android:textColor="@color/green_main"
+        android:translationZ="10dp" />
+
+    <TextView
+        android:id="@+id/btnReviewNow"
+        android:layout_width="wrap_content"
+        android:paddingHorizontal="32dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_marginBottom="16dp"
+        android:layout_height="48dp"
+        android:background="@drawable/custom_bg_btn_blue"
+        android:layout_below="@+id/textView43"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="Đánh giá" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnReviewNow"
+        android:layout_alignBottom="@+id/btnReviewNow"
+        android:fontFamily="@font/outfit_regular"
+        android:gravity="center"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toStartOf="@+id/btnReviewNow"
+        android:text="Đánh giá sản phẩm ngay nào" />
+</RelativeLayout>

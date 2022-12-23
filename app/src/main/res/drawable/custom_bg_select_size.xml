@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/hint_text">
+    <item>
+        <shape>
+            <size
+                android:width="48dp"
+                android:height="48dp" />
+            <solid android:color="@color/black" />
+            <corners android:radius="6dp" />
+        </shape>
+    </item>
+    <item
+        android:width="10dp"
+        android:height="8dp"
+        android:drawable="@drawable/ic_tick_white_detail"
+        android:gravity="end" />
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <corners android:radius="6dp" />
+            <solid android:color="@color/hint" />
+        </shape>
+    </item>
+</ripple>

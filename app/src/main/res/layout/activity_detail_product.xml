@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motionDetailProduct"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/btnBackBuying"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="42dp"
+        android:background="@drawable/ripple_circle"
+        android:padding="8dp"
+        android:translationZ="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_back_button" />
+
+    <ImageView
+        android:id="@+id/btnAddToFavoriteBuying"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="30dp"
+        android:elevation="8dp"
+        android:translationZ="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ripple_heart_border" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddToCartDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:minHeight="1000dp">
+
+            <ImageView
+                android:id="@+id/imgHeaderDetailProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/header_buying_activity" />
+
+            <View
+                android:id="@+id/viewSub"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="-60dp"
+                android:background="@drawable/bg_sub_item_buying"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgHeaderDetailProduct" />
+
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="46dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="@string/coolmate_mens"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/viewSub" />
+
+            <TextView
+                android:id="@+id/tvTitleNameDetailProduct"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/outfit_bold"
+                android:text="@string/o_polo_nam_pique_cotton"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toStartOf="@+id/tvPriceDetailProduct"
+                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:textAllCaps="true"
+                android:id="@+id/tvPriceDetailProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="28dp"
+                android:fontFamily="@font/outfit_bold"
+                android:text="@string/_329_000_vnd"
+                android:textColor="@color/red_main"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTitleNameDetailProduct"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvTitleNameDetailProduct" />
+
+            <TextView
+                android:textAllCaps="true"
+                android:id="@+id/tvGiamGiaTien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="28dp"
+                android:fontFamily="@font/outfit_bold"
+                android:text="@string/_329_000_vnd"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvPriceDetailProduct"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvStatusDetail"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <View
+                android:id="@+id/viewDiviGiamGia"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/red_main"
+                app:layout_constraintBottom_toBottomOf="@+id/tvGiamGiaTien"
+                app:layout_constraintEnd_toEndOf="@+id/tvGiamGiaTien"
+                app:layout_constraintStart_toStartOf="@+id/tvGiamGiaTien"
+                app:layout_constraintTop_toTopOf="@+id/tvGiamGiaTien" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvColorDetail"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/viewSub"
+                app:layout_constraintEnd_toStartOf="@+id/rcvListImageDetail"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgStar1"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/tvTitleNameDetailProduct"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleNameDetailProduct"
+                android:src="@drawable/ic_star_gray_detail" />
+
+            <ImageView
+                android:id="@+id/imgStar2"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toEndOf="@+id/imgStar1"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleNameDetailProduct"
+                android:src="@drawable/ic_star_gray_detail" />
+
+            <ImageView
+                android:id="@+id/imgStar3"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toEndOf="@+id/imgStar2"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleNameDetailProduct"
+                android:src="@drawable/ic_star_gray_detail" />
+
+            <ImageView
+                android:id="@+id/imgStar4"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toEndOf="@+id/imgStar3"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleNameDetailProduct"
+                android:src="@drawable/ic_star_gray_detail"  />
+
+            <ImageView
+                android:id="@+id/imgStar5"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toEndOf="@+id/imgStar4"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleNameDetailProduct"
+                android:src="@drawable/ic_star_gray_detail" />
+
+            <TextView
+                android:id="@+id/tvReviewDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="(4.5)"
+                android:textColor="@color/hint_text"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgStar5"
+                app:layout_constraintStart_toEndOf="@+id/imgStar5"
+                app:layout_constraintTop_toTopOf="@+id/imgStar5" />
+
+            <ImageView
+                android:id="@+id/btnShareDetail"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="30dp"
+                android:elevation="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgStar1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imgStar1"
+                app:srcCompat="@drawable/ripple_share_border" />
+
+
+            <TextView
+                android:id="@+id/tvTitleDesDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/outfit_medium"
+                android:text="@string/description"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/tvTitleQuantityDetail"
+                app:layout_constraintTop_toBottomOf="@+id/tvFeatureProductDetail" />
+
+            <TextView
+                android:id="@+id/tvTitleQuantityDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/outfit_medium"
+                android:text="Số lượng"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/imgStar1"
+                app:layout_constraintTop_toBottomOf="@+id/imgStar1" />
+
+            <TextView
+                android:id="@+id/tvDesDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="28dp"
+                android:fontFamily="@font/outfit_regular"
+                android:maxLines="5"
+                android:textSize="16sp"
+                android:text="@string/ch_t_li_u_97_cotton_usa_3_spandex_v_i_ch_t_li_u_cotton_usa_ch_t_l_ng_cao_mang_l_i_s_m_m_m_i_v_th_m_h_t_m_h_i_t_t_co_gi_n_4_chi_u_mang_l_i_s_tho_i_m_i_khi_m_c_bo_c_d_t_b_ng_s_i_cotton_vi_n_ph_i_polyester_detail"
+                android:textColor="@color/hint_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvTitleDesDetail"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleDesDetail" />
+
+            <ProgressBar
+                android:id="@+id/progressBarLoading"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateTint="@color/black"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvStatusDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Hết hàng"
+                android:textColor="@color/main_color"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                app:layout_constraintEnd_toEndOf="@+id/tvPriceDetailProduct"
+                app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+            <CheckBox
+                android:id="@+id/chkStatusDetail"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/custom_checked_buying"
+                android:button="@android:color/transparent"
+                android:checked="false"
+                app:layout_constraintBottom_toBottomOf="@+id/tvStatusDetail"
+                app:layout_constraintEnd_toStartOf="@+id/tvStatusDetail"
+                app:layout_constraintTop_toTopOf="@+id/tvStatusDetail"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/tvQuantityDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="999"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTitleQuantityDetail"
+                app:layout_constraintStart_toEndOf="@+id/tvTitleQuantityDetail"
+                app:layout_constraintTop_toTopOf="@+id/tvTitleQuantityDetail" />
+
+            <TextView
+                android:id="@+id/tvSubNameProductDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="@string/o_polo_nam_pique_cotton"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/btnShareDetail"
+                app:layout_constraintStart_toEndOf="@+id/tvTitleSubNameProductDetail"
+                app:layout_constraintTop_toTopOf="@+id/tvTitleSubNameProductDetail" />
+
+            <TextView
+                android:id="@+id/tvStyleProductDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="@string/o_polo_nam_pique_cotton"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/btnShareDetail"
+                app:layout_constraintStart_toEndOf="@+id/tvTitleStyleProductDetail"
+                app:layout_constraintTop_toTopOf="@+id/tvTitleStyleProductDetail" />
+
+            <TextView
+                android:id="@+id/tvCatalogProductDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="@string/o_polo_nam_pique_cotton"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/btnShareDetail"
+                app:layout_constraintStart_toEndOf="@+id/tvTitleCatalogProductDetail"
+                app:layout_constraintTop_toTopOf="@+id/tvTitleCatalogProductDetail" />
+
+            <TextView
+                android:id="@+id/tvMaterialProductDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="@string/o_polo_nam_pique_cotton"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/btnShareDetail"
+                app:layout_constraintStart_toEndOf="@+id/tvTitleMaterialProductDetail"
+                app:layout_constraintTop_toTopOf="@+id/tvTitleMaterialProductDetail" />
+
+            <TextView
+                android:id="@+id/tvFeatureProductDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="@string/o_polo_nam_pique_cotton"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/btnShareDetail"
+                app:layout_constraintStart_toEndOf="@+id/tvTitleFeatureProductDetail"
+                app:layout_constraintTop_toTopOf="@+id/tvTitleFeatureProductDetail" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvListImageDetail"
+                android:layout_width="64dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="16dp"
+                android:clipToPadding="false"
+                android:paddingLeft="8dp"
+                android:paddingTop="3dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="3dp"
+                app:layout_constraintBottom_toTopOf="@+id/viewSub"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTitleSubNameProductDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Tên sản phẩm:"
+                android:textColor="@color/main_color"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tvTitleQuantityDetail"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleQuantityDetail" />
+
+            <TextView
+                android:id="@+id/tvTitleStyleProductDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Kiểu dáng:"
+                android:textColor="@color/main_color"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tvTitleQuantityDetail"
+                app:layout_constraintTop_toBottomOf="@+id/tvSubNameProductDetail" />
+
+            <TextView
+                android:id="@+id/tvTitleCatalogProductDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Danh mục:"
+                android:textColor="@color/main_color"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tvTitleQuantityDetail"
+                app:layout_constraintTop_toBottomOf="@+id/tvStyleProductDetail" />
+
+            <TextView
+                android:id="@+id/tvTitleMaterialProductDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Chất liệu:"
+                android:textColor="@color/main_color"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tvTitleQuantityDetail"
+                app:layout_constraintTop_toBottomOf="@+id/tvCatalogProductDetail" />
+
+            <TextView
+                android:id="@+id/tvTitleFeatureProductDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Tính năng:"
+                android:textColor="@color/main_color"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tvTitleQuantityDetail"
+                app:layout_constraintTop_toBottomOf="@+id/tvMaterialProductDetail" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/btnAddToCartDetail"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_bg_btn_solid_black"
+        android:drawableStart="@drawable/ic_bag_detail"
+        android:fontFamily="@font/outfit_regular"
+        android:gravity="center"
+        android:paddingLeft="62dp"
+        android:paddingRight="62dp"
+        android:text="@string/th_m_v_o_gi_h_ng"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:translationZ="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="UseCompatTextViewDrawableXml" />
+</androidx.constraintlayout.widget.ConstraintLayout>

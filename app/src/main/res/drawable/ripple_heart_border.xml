@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/hint">
+
+    <item>
+        <layer-list>
+            <item
+                android:id="@+id/heartSub">
+                <shape android:shape="oval">
+                    <corners android:radius="100dp" />
+                    <solid android:color="@color/white" />
+                    <padding
+                        android:bottom="8dp"
+                        android:left="8dp"
+                        android:right="8dp"
+                        android:top="8dp" />
+                </shape>
+            </item>
+            <item android:drawable="@drawable/ic_heart_toolbar"/>
+
+        </layer-list>
+    </item>
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <corners android:radius="100dp" />
+            <solid android:color="@color/hint" />
+        </shape>
+    </item>
+</ripple>

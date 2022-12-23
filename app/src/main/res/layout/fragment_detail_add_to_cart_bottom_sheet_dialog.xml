@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_bottom_sheet"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgPreviewBottomSheet"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/avatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgScroll"
+        app:shapeAppearanceOverlay="@style/roundedImageView28dp" />
+
+    <TextView
+        android:id="@+id/tvCountProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="Còn: 12"
+        app:layout_constraintBottom_toBottomOf="@+id/imgPreviewBottomSheet"
+        app:layout_constraintStart_toEndOf="@+id/imgPreviewBottomSheet" />
+
+    <TextView
+        android:id="@+id/tvPriceBottomSheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/outfit_bold"
+        android:text="@string/_329_000_vnd"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvCountProduct"
+        app:layout_constraintStart_toStartOf="@+id/tvCountProduct" />
+
+    <ImageView
+        android:id="@+id/imgScroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_drag_bottom_sheet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scrollChosenDetailBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddToCartBottomSheet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgPreviewBottomSheet"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/tvColorBottomSheet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/outfit_bold"
+            android:text="Màu sắc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvColorBottomSheet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:foregroundGravity="center"
+            android:maxHeight="120dp"
+            app:layout_constraintEnd_toEndOf="@+id/tvColorBottomSheet"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/tvColorBottomSheet"
+            app:layout_constraintTop_toBottomOf="@+id/tvColorBottomSheet" />
+
+        <TextView
+            android:id="@+id/tvSizeBottomSheet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/outfit_bold"
+            android:text="Size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rcvColorBottomSheet" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvSizeBottomSheet"
+            android:layout_width="0dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:itemCount="9"
+            android:orientation="horizontal"
+            app:spanCount="1"
+            tools:listitem="@layout/item_size"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:foregroundGravity="center"
+            android:maxHeight="120dp"
+            app:layout_constraintEnd_toEndOf="@+id/tvColorBottomSheet"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/tvColorBottomSheet"
+            app:layout_constraintTop_toBottomOf="@+id/tvSizeBottomSheet" />
+
+        <TextView
+            android:id="@+id/tvQuantityBottomSheet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/outfit_bold"
+            android:text="Số lượng"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rcvSizeBottomSheet" />
+
+        <TextView
+            android:id="@+id/btnDownBottomSheet"
+            android:layout_width="24dp"
+            android:layout_height="25dp"
+            android:background="@drawable/ripple_4dp_left"
+            android:fontFamily="@font/outfit_medium"
+            android:gravity="center"
+            android:text="-"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvQuantityBottomSheet"
+            app:layout_constraintEnd_toStartOf="@+id/btnNumberBottomSheet"
+            app:layout_constraintTop_toTopOf="@+id/tvQuantityBottomSheet" />
+
+        <TextView
+            android:id="@+id/btnNumberBottomSheet"
+            android:layout_width="42dp"
+            android:layout_height="25dp"
+            android:background="@drawable/ripple_0dp"
+            android:fontFamily="@font/outfit_regular"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnDownBottomSheet"
+            app:layout_constraintEnd_toStartOf="@+id/btnUpBottomSheet"
+            app:layout_constraintTop_toTopOf="@+id/btnDownBottomSheet"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TextViewEdits,TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/btnUpBottomSheet"
+            android:layout_width="24dp"
+            android:layout_height="25dp"
+            android:background="@drawable/ripple_4dp_right"
+            android:fontFamily="@font/outfit_medium"
+            android:gravity="center"
+            android:text="+"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnDownBottomSheet"
+            app:layout_constraintEnd_toEndOf="@+id/tvColorBottomSheet"
+            app:layout_constraintTop_toTopOf="@+id/btnDownBottomSheet" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/btnAddToCartBottomSheet"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_bg_btn_blue"
+        android:fontFamily="@font/outfit_regular"
+        android:gravity="center"
+        android:text="Thêm vào giỏ hàng"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
