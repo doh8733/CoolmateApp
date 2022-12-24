@@ -4,6 +4,7 @@ import android.content.Intent
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
+import com.orhanobut.hawk.Hawk
 import com.quannm18.coolmateapp.R
 import com.quannm18.coolmateapp.base.BaseActivity
 import com.quannm18.coolmateapp.bus.ListenerValidate
@@ -12,13 +13,16 @@ import com.quannm18.coolmateapp.model.user.UserLogin
 import com.quannm18.coolmateapp.network.auth.SessionManager
 import com.quannm18.coolmateapp.utils.ManagerSaveLocal
 import com.quannm18.coolmateapp.utils.Status
+import com.quannm18.coolmateapp.view.dialog.DialogAsk
 import com.quannm18.coolmateapp.view.dialog.DialogShowValidate
 import com.quannm18.coolmateapp.view.dialog.LoadingDialog
 import com.quannm18.coolmateapp.viewmodel.LoginViewModel
 import com.sendbird.android.GroupChannel
 import com.sendbird.android.GroupChannelParams
 import com.sendbird.android.SendBird
+import kotlinx.android.synthetic.main.activity_change_password.*
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.tilPassword
 
 class LoginActivity : BaseActivity() {
     private val loginViewModel: LoginViewModel by viewModels()
@@ -52,8 +56,7 @@ class LoginActivity : BaseActivity() {
             when (it) {
                 is ListenerValidate -> {
                     if (it.status != Status.SUCCESS) {
-                        DialogShowValidate(this, it).apply {
-                            show()
+                        DialogShowValidate(this, it).apply { show()
                         }
                     } else {
                         loginViewModel.login(userLogin).observe(this) {
@@ -63,18 +66,20 @@ class LoginActivity : BaseActivity() {
                                 }
                                 Status.SUCCESS -> {
                                     try {
-                                        it.data?.let { res ->
-                                            loginViewModel.saveTokenAndRememberUserData(
-                                                res,
-                                                chkRemember.isChecked,
-                                                userLogin
-                                            )
-                                            connectToSendbird(res)
-                                            Log.e(TAG, "listenLiveData: ${res.user?.chatLink}")
+                                        if (it.data?.code() == 200) {
+                                            it.data?.body()?.let { res ->
+                                                loginViewModel.saveTokenAndRememberUserData(
+                                                    res,
+                                                    chkRemember.isChecked,
+                                                    userLogin
+                                                )
+                                                managerSaveLocal.savePassword(tilPassword.editText?.text.toString().trim())
+                                                connectToSendbird(res)
+                                            }
+                                        } else {
+                                            loadingDialog.dismissDialog()
+                                            DialogAsk(this,"Đăng nhập thất bại","Sai tên tài khoản hoặc mật khẩu").show()
                                         }
-                                        loadingDialog.dismissDialog()
-//                                        startActivity(Intent(this, HomeActivity::class.java))
-//                                        finish()
                                     } catch (e: Exception) {
                                         e.printStackTrace()
                                     }
@@ -159,8 +164,9 @@ class LoginActivity : BaseActivity() {
                                 Toast.LENGTH_SHORT
                             )
                                 .show()
+                            loadingDialog.dismissDialog()
                             //luu y cai nay se luu gui link chanel ddeen man home khi bam nut chat se su dung no
-                            val i = Intent(this, HomeActivity::class.java)
+                            val i = Intent(this, BuyingActivity::class.java)
                             responseLogin.user?.chatLink?.let { managerSaveLocal.saveChatLink(it) }
                             startActivity(i)
                         }

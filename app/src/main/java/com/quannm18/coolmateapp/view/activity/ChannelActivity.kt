@@ -8,12 +8,14 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import com.orhanobut.hawk.Hawk
 import com.quannm18.coolmateapp.R
 import com.quannm18.coolmateapp.base.BaseActivity
 import com.quannm18.coolmateapp.utils.ManagerSaveLocal
 import com.quannm18.coolmateapp.view.adapter.chat.MessageAdapter
 import com.sendbird.android.*
 import kotlinx.android.synthetic.main.activity_channel.*
+import kotlin.math.log
 
 
 class ChannelActivity : BaseActivity() {
@@ -43,6 +45,7 @@ class ChannelActivity : BaseActivity() {
 
     override fun listeners() {
         Log.e("URL", "onResume: ${managerSaveLocal.getChatLink()}")
+        //do cai managerSaveLocal.getChatLink() nay ok
         GroupChannel.getChannel(managerSaveLocal.getChatLink(),
             GroupChannel.GroupChannelGetHandler { groupChannel, e ->
                 if (e != null) {
@@ -50,6 +53,7 @@ class ChannelActivity : BaseActivity() {
                     return@GroupChannelGetHandler
                 }
                 this.groupChannel = groupChannel
+                Log.e("TAG", "chat: $groupChannel", )
                 getMessages()
                 for (i in groupChannel.members.indices) {
                     tvNameUser.text = groupChannel.members[i].nickname

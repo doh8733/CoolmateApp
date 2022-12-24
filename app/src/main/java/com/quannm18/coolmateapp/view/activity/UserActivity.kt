@@ -62,7 +62,7 @@ class UserActivity : BaseActivity() {
 
         }
         btnChangePassUser.setOnClickListener {
-            startActivity(Intent(this, ForgetPasswordActivity::class.java))
+            startActivity(Intent(this, ChangePasswordActivity::class.java))
         }
         btnLogOut.setOnClickListener {
             DialogLogOut.newInstance(this@UserActivity).apply {

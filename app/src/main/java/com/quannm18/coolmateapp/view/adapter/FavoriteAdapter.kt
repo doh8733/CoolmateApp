@@ -22,7 +22,7 @@ class FavoriteAdapter(
             favorite.product.color[0].image?.let {
                 CommonUtils.loadAvatarItem(it[0],imgItemFavorite)
             }
-            tvPrice.text = "${MyApp.dec.format(favorite.product.price)} VND"
+            tvPrice.text = "${MyApp.dec.format(favorite.product.promotionalPrice)} VND"
             tvNameProduct.text = favorite.product.productName
             tvLocalBrand.text = favorite.product.brand
 

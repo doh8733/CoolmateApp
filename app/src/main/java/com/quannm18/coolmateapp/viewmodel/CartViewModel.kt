@@ -12,6 +12,7 @@ import com.quannm18.coolmateapp.model.cart.CartProduct
 import com.quannm18.coolmateapp.model.itemcart.PutItemCart
 import com.quannm18.coolmateapp.model.itemcart.ResponseItemCart
 import com.quannm18.coolmateapp.model.order.OrderPost
+import com.quannm18.coolmateapp.model.order.ShippingStatus
 import com.quannm18.coolmateapp.network.repository.CartRepositoryAPI
 import com.quannm18.coolmateapp.utils.Resource
 import kotlinx.coroutines.Dispatchers
@@ -98,6 +99,14 @@ class CartViewModel(application: Application, handle: SavedStateHandle) : BaseVi
             emit(Resource.success(cartRepositoryAPI.getCartByID(authToken, id)))
         } catch (e: Exception) {
             emit(Resource.error(null, e.message ?: "null"))
+        }
+    }
+    fun huyDonHang(token :String ,id: String,shippingStatus: String,note :String) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
+        try {
+            emit(Resource.success(data = cartRepositoryAPI.huyDon(token,id,shippingStatus, note)))
+        }catch (e :Exception){
+            emit(Resource.error(data = null,e.message?: ""))
         }
     }
 

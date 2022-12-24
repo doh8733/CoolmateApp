@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "312498019539",
-    "firebase_url": "https://duantotnghiep-365013-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "duantotnghiep-365013",
-    "storage_bucket": "duantotnghiep-365013.appspot.com"
+    "project_number": "1014133405179",
+    "project_id": "coolmateotp",
+    "storage_bucket": "coolmateotp.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:312498019539:android:9e53482ffb5832ad05c826",
+        "mobilesdk_app_id": "1:1014133405179:android:98f49ee6b59e8db136475e",
         "android_client_info": {
           "package_name": "com.quannm18.coolmateapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "312498019539-aqatnml600pg7gbd7hr7rlq99srgdp7n.apps.googleusercontent.com",
+          "client_id": "1014133405179-j7ti4g8fe9j4r4ba6hcmu6th2gvft1mg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.quannm18.coolmateapp",
+            "certificate_hash": "8b05433a4da35fe45c7c040e46a54b6c614bf9ca"
+          }
+        },
+        {
+          "client_id": "1014133405179-s4cjhlsc6v74eph8oh470puar2e29f0m.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCw_k-cHucLDYyj53nE-qLZYnDqoe-xTQI"
+          "current_key": "AIzaSyAdPEmoxXB8_hyyjd07O2fRRIDOpWQEPG0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "312498019539-aqatnml600pg7gbd7hr7rlq99srgdp7n.apps.googleusercontent.com",
+              "client_id": "1014133405179-s4cjhlsc6v74eph8oh470puar2e29f0m.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

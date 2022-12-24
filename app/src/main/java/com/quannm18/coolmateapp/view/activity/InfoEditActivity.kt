@@ -15,6 +15,9 @@ import com.hbb20.CountryCodePicker
 import com.orhanobut.hawk.Hawk
 import com.quannm18.coolmateapp.R
 import com.quannm18.coolmateapp.base.BaseActivity
+import com.quannm18.coolmateapp.utils.ManagerSaveLocal
+import com.quannm18.coolmateapp.view.dialog.DialogAsk
+import com.quannm18.coolmateapp.view.dialog.DialogShowValidate
 import com.quannm18.coolmateapp.view.dialog.LoadingDialog
 import com.quannm18.coolmateapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.activity_info_edit.*
@@ -27,7 +30,6 @@ class InfoEditActivity : BaseActivity() {
     private var chatLink = ""
     private var gender = ""
     private var birthday = ""
-    private lateinit var i: Intent
     private lateinit var datePickerDialog: DatePickerDialog
     private lateinit var radioButton: RadioButton
     private lateinit var auth: FirebaseAuth
@@ -35,6 +37,9 @@ class InfoEditActivity : BaseActivity() {
     private lateinit var countryCode: String
     private val ccp: CountryCodePicker by lazy { findViewById<CountryCodePicker>(R.id.ccp) }
     private val userViewModel: UserViewModel by viewModels()
+    private val managerSaveLocal: ManagerSaveLocal by lazy {
+        ManagerSaveLocal()
+    }
 
     override fun layoutID(): Int = R.layout.activity_info_edit
     override fun initData() {
@@ -59,13 +64,14 @@ class InfoEditActivity : BaseActivity() {
 
     override fun listenLiveData() {
         //lang nghe su livedata
-
+       // observeInputPhoneCode()
     }
 
     override fun listeners() {
         //dung su kien
         btnEditUser.setOnClickListener {
             validate()
+
         }
         imgBack.setOnClickListener {
             finish()
@@ -121,69 +127,30 @@ class InfoEditActivity : BaseActivity() {
 
 
     private fun validate() {
-        val fullname = tilUserName.editText?.text.toString()
-        val password = tilPassword.editText?.text.toString()
-        val phoneNumber = tilPhoneNumber.editText?.text.toString()
-        val address = tilAddress.editText?.text.toString()
-        val birthday = tilBirthday.editText?.text.toString()
+        val fullname = tilUserName.editText?.text.toString().trim()
+        val password = tilPassword.editText?.text.toString().trim()
+        val phoneNumber = tilPhoneNumber.editText?.text.toString().trim()
+        val address = tilAddress.editText?.text.toString().trim()
+        val birthday = tilBirthday.editText?.text.toString().trim()
 
-        if (fullname.isEmpty()) {
-            tilUserName.isErrorEnabled = true
-            tilUserName.error = "Không được để trống"
+        if (fullname.isEmpty() || password.isEmpty() || phoneNumber.isEmpty() || address.isEmpty() || birthday.isEmpty()) {
+            DialogAsk(this,"Thiếu trường dữ liệu","Vui lòng nhập đủ trường dữ liệu").show()
             return
-        } else {
-            if (fullname.length < 4) {
-                tilUserName.isErrorEnabled = true
-                tilUserName.error = "Họ tên tối thiểu 4 ký tự"
-                return
-            } else {
-                tilUserName.isErrorEnabled = false
-            }
         }
-        if (birthday.isEmpty()) {
-            tilBirthday.isErrorEnabled = true
-            tilBirthday.error = "Không được để trống"
+        if (password != managerSaveLocal.getPassword()){
+            DialogAsk(this,"Sai mật khẩu","Vui lòng nhập đúng mật khẩu đăng nhập").show()
             return
-        } else {
-            tilBirthday.isErrorEnabled = false
         }
-        if (password.trim().isEmpty()) {
-            tilPassword.isErrorEnabled = true
-            tilPassword.error = "Không được để trống"
-            return
-        } else {
-            if (password.trim() != Hawk.get("PASSWORD")) {
-                tilPassword.isErrorEnabled = true
-                tilPassword.error = "Sai mật khẩu đăng nhập"
-                return
-            } else {
-                tilPassword.isErrorEnabled = false
-            }
-        }
-        if (phoneNumber.isEmpty()) {
-            tilPhoneNumber.isErrorEnabled = true
-            tilPhoneNumber.error = "Không được để trống"
-            return
-        } else {
-            tilPhoneNumber.isErrorEnabled = false
-
-        }
-        if (address.trim().isEmpty()) {
-            tilAddress.isErrorEnabled = true
-            tilAddress.error = "Không được để trống"
-            return
-        } else {
-            tilAddress.isErrorEnabled = false
-        }
-
         ccp.setPhoneNumberValidityChangeListener { isValidate ->
-            if (isValidate) {
-                tilPhoneNumber.isErrorEnabled = false
+            if (isValidate && fullname.isNotEmpty() && password.isNotEmpty() && phoneNumber.isNotEmpty() && address.isNotEmpty() && birthday.isNotEmpty()) {
                 loadingDialog.startLoadingDialog()
                 verifyPhoneNumber("+84" + tilPhoneNumber.editText?.text.toString())
-            } else {
-                tilPhoneNumber.isErrorEnabled = true
-                tilPhoneNumber.error = "Sai định dạng số điện thoại"
+            } else if (!isValidate) {
+                DialogAsk(
+                    this,
+                    "Sai định dạng số điện thoại",
+                    "Vui lòng nhập lại số điện thoại"
+                ).show()
                 return@setPhoneNumberValidityChangeListener
             }
         }
@@ -202,10 +169,10 @@ class InfoEditActivity : BaseActivity() {
             override fun afterTextChanged(s: Editable?) {
                 ccp.setPhoneNumberValidityChangeListener { isValidate ->
                     if (isValidate) {
+                        tilPhoneNumber.isErrorEnabled = false
+                    } else {
                         tilPhoneNumber.isErrorEnabled = true
                         tilPhoneNumber.error = "Sai định dạng số điện thoại"
-                    } else {
-                        tilPhoneNumber.isErrorEnabled = false
                     }
                 }
             }
@@ -225,8 +192,8 @@ class InfoEditActivity : BaseActivity() {
 
     private fun verifyPhoneNumber(phone: String) {
         val options = PhoneAuthOptions.newBuilder(auth)
-            .setPhoneNumber(phone)       // Phone number to verify
-            .setTimeout(120L, TimeUnit.SECONDS) // Timeout and unit
+            .setPhoneNumber(phone)
+            .setTimeout(120L, TimeUnit.SECONDS)
             .setActivity(this@InfoEditActivity)
             // Activity (for callback binding)
             .setCallbacks(object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -245,12 +212,11 @@ class InfoEditActivity : BaseActivity() {
                 ) {
                     super.onCodeSent(verifyID, p1)
                     codeSend = verifyID
-
                     gotoNextActivity("+84${tilPhoneNumber.editText?.text?.substring(1)}", verifyID)
                     loadingDialog.dismissDialog()
 
                 }
-            })          // OnVerificationStateChangedCallbacks
+            })
             .build()
         PhoneAuthProvider.verifyPhoneNumber(options)
     }
@@ -261,7 +227,6 @@ class InfoEditActivity : BaseActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("TAG", "signInWithCredential:success")
-
                     val user = task.result?.user
                     Toast.makeText(this, "Thanh cong ${user?.phoneNumber}", Toast.LENGTH_SHORT)
                         .show()
@@ -283,7 +248,7 @@ class InfoEditActivity : BaseActivity() {
         val password = tilPassword.editText?.text.toString()
         val address = tilAddress.editText?.text.toString()
         Log.e("TAG", "gotoNextActivity: $phone")
-//        i = Intent(this, VerifyActivity::class.java)
+        val i = Intent(this, VerifyActivity::class.java)
         i.putExtra("FULLNAME", fullName)
         i.putExtra("PASSWORD", password)
         i.putExtra("PHONE", phone)

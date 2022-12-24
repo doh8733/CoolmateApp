@@ -12,6 +12,7 @@ class MyEnum {
             val DAGIAO = ("Đã giao hàng")
             val DATRA = ("Đã trả hàng")
             val DANHAN = ("Đã nhận")
+            val CHOXACNHANHUYDONHANG= ("Chờ xác nhận hủy đơn hàng")
         }
     }
     class LocationEnum {

@@ -14,6 +14,7 @@ import com.quannm18.coolmateapp.model.product.Product
 import com.quannm18.coolmateapp.network.auth.SessionManager
 import com.quannm18.coolmateapp.utils.Status
 import com.quannm18.coolmateapp.view.adapter.home.NoiBatAdapter
+import com.quannm18.coolmateapp.view.dialog.DialogAsk
 import com.quannm18.coolmateapp.view.dialog.DialogFilterBottomSheet
 import com.quannm18.coolmateapp.view.dialog.LoadingDialog
 import com.quannm18.coolmateapp.viewmodel.ProductViewModel
@@ -26,6 +27,7 @@ class FindActivity : BaseActivity() {
     private val loadingDialog: LoadingDialog by lazy {
         LoadingDialog(this)
     }
+    private var productName: String? = null
     private val noiBatAdapter: NoiBatAdapter by lazy {
         NoiBatAdapter(
             likeItem = {
@@ -38,6 +40,8 @@ class FindActivity : BaseActivity() {
             }
         )
     }
+    private var nullChar :String? = null
+
     override fun layoutID(): Int = R.layout.activity_find
 
     override fun initData() {
@@ -51,7 +55,7 @@ class FindActivity : BaseActivity() {
 
         rcvViewFind.apply {
             adapter = noiBatAdapter
-            layoutManager = GridLayoutManager(this@FindActivity,2)
+            layoutManager = GridLayoutManager(this@FindActivity, 2)
         }
     }
 
@@ -68,7 +72,7 @@ class FindActivity : BaseActivity() {
             DialogFilterBottomSheet(
                 eventClick = {
                     getListDataFilter(it)
-                }
+                }, productName
             ).show(
                 supportFragmentManager,
                 DialogFilterBottomSheet::class.simpleName.toString()
@@ -86,7 +90,8 @@ class FindActivity : BaseActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-
+                productName = s.toString()
+                getDataFinding(s.toString())
             }
 
         })
@@ -102,13 +107,21 @@ class FindActivity : BaseActivity() {
             it.let {
                 when (it.status) {
                     Status.ERROR -> {
-                        Log.e("Error", it.message.toString())
+                        DialogAsk(this,"Lọc thất bại","không tìm thấy sản phẩm yêu cầu").show()
                     }
                     Status.SUCCESS -> {
                         it.data?.let {
                             noiBatAdapter.submitList(it)
+                            Toast.makeText(this, "Tìm kiếm thành công", Toast.LENGTH_SHORT).show()
+                            tvSearch.text = if (it.isNotEmpty()) {
+                                "Chúng tôi tìm thấy ${it.size} tương tự"
+
+                            } else {
+                                "Không tìm thấy sản phẩm có từ khóa: $productName"
+                            }
+                            Log.e("TAG", "getListDataFilter: ${getFilter.productName}")
                         }
-                        Toast.makeText(this, "Tìm kiếm thành công", Toast.LENGTH_SHORT).show()
+
                     }
                     Status.LOADING -> {
                         Toast.makeText(this, "wait", Toast.LENGTH_SHORT).show()
@@ -124,24 +137,27 @@ class FindActivity : BaseActivity() {
                 it.let {
                     when (it.status) {
                         Status.ERROR -> {
-                            Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+                            tvSearch.text = "Không tìm thấy sản phẩm có từ khóa: $productName"
                         }
                         Status.SUCCESS -> {
                             it.data?.let {
-                                tvSearch.text = if (it.size > 0) {
-                                    "Chúng tôi tìm thấy ${productList.size} tương tự"
+                                tvSearch.text = if (it.isNotEmpty()) {
+                                    "Chúng tôi tìm thấy ${it.size} tương tự"
+
                                 } else {
                                     "Không tìm thấy sản phẩm có từ khóa: $productName"
                                 }
+                                noiBatAdapter.submitList(it as MutableList<Product>)
                             }
+
                         }
                         Status.LOADING -> {
-                            Toast.makeText(this, "wait", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
             }
     }
+
     private fun likeItem(productId: String) {
         productViewModel.postFavorite("Bearer ${sessionManager.fetchAuthToken()}", productId)
             .observe(this) {

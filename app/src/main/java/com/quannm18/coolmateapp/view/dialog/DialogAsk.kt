@@ -33,9 +33,12 @@ class DialogAsk(context: Context, var text: String, var description: String) : B
     override fun listener() {
         btnCloseDialog.setOnClickListener {
             listener.postValue(false)
+            dismiss()
         }
         btnLogoutDialog.setOnClickListener {
             listener.postValue(true)
+            dismiss()
+
         }
     }
 }
