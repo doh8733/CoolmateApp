@@ -1,6 +1,7 @@
 package com.quannm18.coolmateapp.network.repository
 
 import android.app.Application
+import androidx.lifecycle.liveData
 import com.quannm18.coolmateapp.model.user.UserLogin
 import com.quannm18.coolmateapp.network.api.ApiConfig
 import com.quannm18.coolmateapp.network.api.ApiConfigWithAuth
@@ -44,6 +45,7 @@ class UserRepositoryAPI(var application: Application) {
 
     suspend fun putAddress(token: String, address: String) =
         ApiConfigWithAuth.apiService.putAddress(token, address)
+
     suspend fun putChatLink(token: String, chatLink: String) =
         ApiConfigWithAuth.apiService.putChatLink(token, chatLink)
 
@@ -54,5 +56,17 @@ class UserRepositoryAPI(var application: Application) {
     suspend fun me(authToken: String) = ApiConfigWithAuth.apiService.me(authToken)
     suspend fun changeAvatar(authToken: String, @Part media: MultipartBody.Part) =
         ApiConfigWithAuth.apiService.changeAvatar(authToken, media)
+
+    suspend fun changePassword(
+        token: String,
+        currentPassword: String,
+        newPassword: String,
+        confirmPassword: String
+    ) = ApiConfig.apiService.changePassword(
+        token,
+        currentPassword,
+        newPassword,
+        confirmPassword
+    )
 
 }

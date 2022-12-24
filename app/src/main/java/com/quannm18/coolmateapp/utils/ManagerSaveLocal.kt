@@ -12,6 +12,7 @@ class ManagerSaveLocal {
         const val CART_ID = "CartID"
         const val ENABLE_NOTIFICATION = "EnableNotification"
         const val CHAT_LINK = "ChatUrl"
+        const val PASS ="PASSWORD"
     }
 
     /**
@@ -45,6 +46,9 @@ class ManagerSaveLocal {
     fun saveEnableNotification(isEnable: Boolean) {
         Hawk.put(ENABLE_NOTIFICATION, isEnable)
     }
+    fun savePassword(password :String){
+        Hawk.put(PASS,password)
+    }
 
     /**
      * Get
@@ -75,6 +79,9 @@ class ManagerSaveLocal {
 
     fun getEnableNotification(): Boolean {
         return Hawk.get<Boolean>(ENABLE_NOTIFICATION, false)
+    }
+    fun getPassword():String{
+        return Hawk.get(PASS)
     }
 
     /**
@@ -107,5 +114,8 @@ class ManagerSaveLocal {
 
     fun deleteEnableNotification(): Boolean {
         return Hawk.delete(ENABLE_NOTIFICATION)
+    }
+    fun deletePassword():Boolean{
+        return Hawk.delete(PASS)
     }
 }

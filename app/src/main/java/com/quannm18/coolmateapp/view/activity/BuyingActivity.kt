@@ -2,6 +2,8 @@ package com.quannm18.coolmateapp.view.activity
 
 import android.content.Intent
 import android.util.Log
+import android.view.View
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
@@ -16,6 +18,7 @@ import com.quannm18.coolmateapp.view.dialog.DialogHuyDon
 import com.quannm18.coolmateapp.view.dialog.LoadingDialog
 import com.quannm18.coolmateapp.viewmodel.CartViewModel
 import kotlinx.android.synthetic.main.activity_buying.*
+import kotlinx.android.synthetic.main.fragment_huy_don_bottom_sheet_dialog.*
 
 class BuyingActivity : BaseActivity() {
     private val cartViewModel: CartViewModel by viewModels()
@@ -24,6 +27,9 @@ class BuyingActivity : BaseActivity() {
     }
     private val sessionManager: SessionManager by lazy {
         SessionManager()
+    }
+    private val dialogCancelCartBottomSheet :DialogCancelCartBottomSheet by lazy {
+        DialogCancelCartBottomSheet()
     }
     private var id: String = ""
     private var statusButton: STATUS_BUTTON = STATUS_BUTTON.HUYDON
@@ -55,6 +61,7 @@ class BuyingActivity : BaseActivity() {
     }
 
     override fun listeners() {
+
         btnBackBuying.setOnClickListener {
             finish()
         }
@@ -161,6 +168,7 @@ class BuyingActivity : BaseActivity() {
                 chkDangXuLy.isChecked = true
                 chkDangDongGoi.isChecked = true
                 statusButton = STATUS_BUTTON.HUYDON
+
             }
             MyEnum.ShippingStatus.DANGVANCHUYEN -> {
                 showItem(

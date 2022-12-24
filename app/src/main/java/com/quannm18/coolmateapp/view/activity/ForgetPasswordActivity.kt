@@ -1,6 +1,8 @@
 package com.quannm18.coolmateapp.view.activity
 
+import android.content.Intent
 import android.text.Editable
+import android.util.Log
 import android.util.Patterns
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
@@ -11,6 +13,9 @@ import com.google.android.material.textfield.TextInputEditText
 import com.quannm18.coolmateapp.R
 import com.quannm18.coolmateapp.base.BaseActivity
 import com.quannm18.coolmateapp.utils.Status
+import com.quannm18.coolmateapp.utils.ValidateData
+import com.quannm18.coolmateapp.utils.ValidateData.Companion.validateEmail
+import com.quannm18.coolmateapp.view.dialog.DialogAsk
 import com.quannm18.coolmateapp.view.dialog.LoadingDialog
 import com.quannm18.coolmateapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.activity_forget_password.*
@@ -123,7 +128,6 @@ class ForgetPasswordActivity : BaseActivity() {
                 else -> {
                     if (text.isNotEmpty()) editTexts[index + 1].requestFocus()
                     else editTexts[index - 1].requestFocus()
-
                 }
             }
             false
@@ -135,28 +139,28 @@ class ForgetPasswordActivity : BaseActivity() {
     }
 
     private fun validate() {
-        otp = edtVerify1.text.toString() +
-                edtVerify2.text.toString() +
-                edtVerify3.text.toString() +
-                edtVerify4.text.toString() +
-                edtVerify5.text.toString() +
-                edtVerify6.text.toString()
+        otp =
+            edtVerify1.text.toString() + edtVerify2.text.toString() + edtVerify3.text.toString() + edtVerify4.text.toString() + edtVerify5.text.toString() + edtVerify6.text.toString()
         val email = tilEmail.editText?.text?.trim().toString()
         val newPassword = tilPassword.editText?.text?.trim().toString()
         val confirmPassword = tilConfirmPassword.editText?.text?.trim().toString()
 
-        if (email.isEmpty()) {
-            tilEmail.isErrorEnabled = true
-            tilEmail.error = "Không được để chống"
+
+        if (otp.isEmpty() || email.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
+            DialogAsk(
+                this,
+                "Thiếu trường dữ liệu",
+                "Vui lòng nhập đủ trường dữ liệu"
+            ).show()
             return
-        } else {
-            if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                tilEmail.isErrorEnabled = true
-                tilEmail.error = "Sai định dạng email"
-                return
-            } else {
-                tilEmail.isErrorEnabled = false
-            }
+        }
+        if (!email.validateEmail() || email.substring(0, email.indexOf("@")).length < 6) {
+            DialogAsk(
+                this,
+                "Sai định dạng E-mail",
+                "Vui lòng nhập đúng định dạng E-mail"
+            ).show()
+            return
         }
         if (tilVerifyCode1.edtVerify1.text.toString().isEmpty() ||
             tilVerifyCode2.edtVerify2.text.toString().isEmpty() ||
@@ -165,25 +169,19 @@ class ForgetPasswordActivity : BaseActivity() {
             tilVerifyCode5.edtVerify5.text.toString().isEmpty() ||
             tilVerifyCode6.edtVerify6.text.toString().isEmpty()
         ) {
-            Toast.makeText(this, "Vui lòng nhập đầy đủ mã OTP", Toast.LENGTH_SHORT).show()
+            DialogAsk(this, "Nhập sai mã OTP", "Vui lòng nhập đủ mã otp").show()
             return
         }
-        if (newPassword.trim().isEmpty()) {
-            tilPassword.isErrorEnabled = true
-            tilPassword.error = "Không được để trống"
+        if (otp.isEmpty() || email.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
+            DialogAsk(this, "Sai định dạng", "Vui lòng nhập đủ dữ liệu").show()
             return
-        } else {
-            if (newPassword.trim().length < 6) {
-                tilPassword.isErrorEnabled = true
-                tilPassword.error = "Mật khẩu phải từ 6 ký tự"
-                return
-            } else {
-                tilPassword.isErrorEnabled = false
-            }
+        }
+        if (newPassword.length < 6) {
+            DialogAsk(this, "Sai định dạng", "Mật khẩu phải từ 6 ký tự").show()
+            return
         }
         if (confirmPassword != newPassword) {
-            tilPassword.isErrorEnabled = true
-            tilPassword.error = "Nhập lại phải trùng khớp với mật khẩu"
+            DialogAsk(this, "Sai định dạng", "Phải trùng khớp với mật khẩu").show()
             return
         }
         onClickResetPassword(email, otp, newPassword, confirmPassword)
@@ -195,33 +193,23 @@ class ForgetPasswordActivity : BaseActivity() {
         newPassword: String,
         confirmPassword: String
     ) {
-
-
         userViewModel.postResetPassword(email, otp, newPassword, confirmPassword).observe(this) {
             it?.let { res ->
                 when (res.status) {
                     Status.SUCCESS -> {
                         res.data.let { data ->
                             if (data?.code() == 200) {
-                                Snackbar.make(
-                                    layoutContainer,
-                                    "Đổi mật khẩu thành công",
-                                    Snackbar.LENGTH_SHORT
-                                ).show()
+                                startActivity(Intent(this,LoginActivity::class.java))
                                 loadingDialog.dismissDialog()
                             } else {
-                                Snackbar.make(
-                                    layoutContainer,
-                                    res.data!!.message(),
-                                    Snackbar.LENGTH_SHORT
-                                ).show()
                                 loadingDialog.dismissDialog()
+                                DialogAsk(this,"Đặt lại mật khẩu thất bại","Vui lòng kiểm tra lại dữ liệu")
                             }
                         }
                     }
                     Status.ERROR -> {
-                        Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
-
+                        loadingDialog.dismissDialog()
+                        DialogAsk(this,"Đặ lại mật khẩu thất bại","Vui lòng kiểm tra lại dữ liệu")
                     }
                     Status.LOADING -> {
                         loadingDialog.startLoadingDialog()

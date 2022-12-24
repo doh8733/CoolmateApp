@@ -5,6 +5,7 @@ import com.quannm18.coolmateapp.model.cart.AddCart
 import com.quannm18.coolmateapp.model.itemcart.PutItemCart
 import com.quannm18.coolmateapp.model.itemcart.ResponseItemCart
 import com.quannm18.coolmateapp.model.order.OrderPost
+import com.quannm18.coolmateapp.network.api.ApiConfig
 import com.quannm18.coolmateapp.network.api.ApiConfigWithAuth
 
 class CartRepositoryAPI(var application: Application) {
@@ -27,4 +28,7 @@ class CartRepositoryAPI(var application: Application) {
 
     suspend fun getAllItemCart(authToken: String) = ApiConfigWithAuth.apiService.getAllItemCart(authToken)
     suspend fun updateItemCart(authToken: String, itemCart: PutItemCart, idItemCart: String) = ApiConfigWithAuth.apiService.updateItemCart(authToken, itemCart, idItemCart)
+
+    suspend fun huyDon(token :String,id:String, shippingStatus :String, note:String) = ApiConfig.apiService.huyDonhang(token,id,shippingStatus,note)
+
 }

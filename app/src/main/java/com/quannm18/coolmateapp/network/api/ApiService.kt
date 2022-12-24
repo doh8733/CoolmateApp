@@ -14,6 +14,7 @@ import com.quannm18.coolmateapp.model.user.*
 import com.quannm18.coolmateapp.model.voucher.PostAddVoucher
 import com.quannm18.coolmateapp.model.voucher.ResponseAddVoucher
 import com.quannm18.coolmateapp.model.voucher.ResponseVoucher
+import com.quannm18.coolmateapp.model.user.ChangePasswordResponse
 import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.*
@@ -27,7 +28,7 @@ interface ApiService {
     suspend fun getUserByID(@Path("id") id: String): UserInfo
 
     @POST("auth/login")
-    suspend fun login(@Body userLogin: UserLogin): ResponseLogin
+    suspend fun login(@Body userLogin: UserLogin): Response<ResponseLogin>
 
     @FormUrlEncoded
     @POST("auth/register")
@@ -48,6 +49,15 @@ interface ApiService {
         @Header("Authorization") authToken: String,
         @Part media: MultipartBody.Part
     ): UserChangeAvatar
+
+    @FormUrlEncoded
+    @PUT("users/change-password")
+    suspend fun changePassword(
+        @Header("Authorization") authToken: String,
+        @Field("currentPassword") currentPassword :String,
+        @Field("newPassword") newPassword :String,
+        @Field("confirmPassword") confirmPassword :String,
+    ) : Response<ChangePasswordResponse>
 
     @Headers("Content-Type: application/json")
     @PUT("users")
@@ -161,6 +171,14 @@ interface ApiService {
         @Header("Authorization") authToken: String,
         @Path(value = "id") cartId: String
     ): Any
+    @FormUrlEncoded
+    @PUT("api/oders/update-shipping-status/{id}")
+    suspend fun huyDonhang(
+        @Header("Authorization") authToken: String,
+        @Path(value = "id")id :String,
+        @Field("shippingStatus") shippingStatus :String,
+        @Field("note") status :String
+    ) :Response<ResponsePostOrder>
 
     //itemcart
     @GET("api/item-carts")
@@ -218,7 +236,7 @@ interface ApiService {
     suspend fun deleteFavoriteProduct(
         @Header("Authorization") token: String,
         @Path(value = "id") id: String
-    ): List<ResponseFavorite>
+    ): Response<Product>
 
     @Headers("Content-Type:application/x-www-form-urlencoded")
     @GET("users/like/favorite")
@@ -229,6 +247,6 @@ interface ApiService {
     @POST("users/like/{productId}")
     suspend fun postFavorite(
         @Header("Authorization") token: String, @Path("productId") productId: String
-    ): List<ResponseFavorite>
+    ): Response<Product>
 
 }

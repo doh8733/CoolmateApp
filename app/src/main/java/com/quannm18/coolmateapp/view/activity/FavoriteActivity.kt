@@ -101,6 +101,7 @@ class FavoriteActivity : BaseActivity() {
                         }
                         ERROR -> {
                             Log.e("ERROR", "${it.message}")
+                            Toast.makeText(this, "Xóa thất bại", Toast.LENGTH_SHORT).show()
                             loadingDialog.dismissDialog()
                         }
                         LOADING -> {

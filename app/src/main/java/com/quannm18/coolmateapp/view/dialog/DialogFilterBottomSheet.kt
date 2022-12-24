@@ -13,7 +13,8 @@ import com.quannm18.coolmateapp.view.adapter.spinner.SpinnerMaterialCatalogAdapt
 import kotlinx.android.synthetic.main.bottom_sheet_filter.*
 
 class DialogFilterBottomSheet(
-    var eventClick: (GetFilter) -> Unit
+    var eventClick: (GetFilter) -> Unit,
+    var productName: String?
 ) :
     BottomSheetDialogFragment() {
     private var mListStyle: MutableList<String> = mutableListOf()
@@ -124,6 +125,7 @@ class DialogFilterBottomSheet(
         val getFilter = GetFilter(
             priceTo = priceTo ?: 0,
             priceFrom = priceFrom ?: 0,
+            productName = productName,
             style = style,
             catalog = catalog,
             material = material,
@@ -131,23 +133,23 @@ class DialogFilterBottomSheet(
             feature = feature
         )
         if (style == "Tất cả") {
-            getFilter.style = ""
+            getFilter.style = null
             Log.e("STYLE", "onCheckClickFilter: $style")
         }
         if (catalog == "Tất cả") {
-            getFilter.catalog = ""
+            getFilter.catalog = null
             Log.e("CATALOG", "onCheckClickFilter: $catalog")
         }
         if (material == "Tất cả") {
-            getFilter.material = ""
+            getFilter.material = null
             Log.e("MAR", "onCheckClickFilter: $material")
         }
         if (purpose == "Tất cả") {
-            getFilter.purpose = ""
+            getFilter.purpose = null
             Log.e("PURPOSE", "onCheckClickFilter: $purpose")
         }
         if (feature == "Tất cả") {
-            getFilter.feature = ""
+            getFilter.feature = null
             Log.e("FEATURES", "onCheckClickFilter: $feature")
         }
         eventClick(

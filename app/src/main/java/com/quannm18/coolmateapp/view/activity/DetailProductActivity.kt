@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,13 +20,16 @@ import com.quannm18.coolmateapp.utils.Status
 import com.quannm18.coolmateapp.view.adapter.DetailColorAdapter
 import com.quannm18.coolmateapp.view.adapter.DetailImageAdapter
 import com.quannm18.coolmateapp.view.dialog.DialogDetailAddToCartBottomSheet
+import com.quannm18.coolmateapp.view.dialog.LoadingDialog
 import com.quannm18.coolmateapp.viewmodel.DetailViewModel
+import com.quannm18.coolmateapp.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.activity_detail_product.*
 import kotlinx.coroutines.launch
 
 class DetailProductActivity : BaseActivity() {
     private val listener: SingleLiveEvent<Product> = SingleLiveEvent()
     private val detailViewModel: DetailViewModel by viewModels()
+    private val productViewModel: ProductViewModel by viewModels()
     private val sessionManager: SessionManager by lazy {
         SessionManager()
     }
@@ -36,6 +40,8 @@ class DetailProductActivity : BaseActivity() {
         DetailColorAdapter()
     }
     private var productToSend: Product = Product()
+    private lateinit var loadingDialog: LoadingDialog
+    private var idProduct: String = ""
 
     override fun layoutID(): Int = R.layout.activity_detail_product
 
@@ -43,12 +49,15 @@ class DetailProductActivity : BaseActivity() {
         intent.getStringExtra("idProduct")?.let {
             getDetailProduct(id = it)
         }
+
     }
 
     override fun initView() {
         marginNavigationBar(listOf(btnAddToCartDetail))
         marginStatusBar(listOf(btnBackBuying, btnAddToFavoriteBuying))
         addBounceView(listOf(btnAddToCartDetail, btnBackBuying, btnAddToFavoriteBuying))
+
+        loadingDialog = LoadingDialog(this)
 
         rcvListImageDetail.apply {
             adapter = detailImageAdapter
@@ -86,7 +95,7 @@ class DetailProductActivity : BaseActivity() {
             finish()
         }
         btnAddToFavoriteBuying.setOnClickListener {
-
+            intent.getStringExtra("idProduct")?.let { it1 -> likeItem(it1) }
         }
         btnAddToCartDetail.setOnClickListener {
             detailViewModel.setProduct(productToSend.copy())
@@ -95,6 +104,7 @@ class DetailProductActivity : BaseActivity() {
                 DialogDetailAddToCartBottomSheet::class.simpleName.toString()
             )
         }
+
 
 
         btnShareDetail.setOnClick {
@@ -135,7 +145,11 @@ class DetailProductActivity : BaseActivity() {
                 tvTitleNameDetailProduct.text = this.productName
                 tvSubNameProductDetail.text = this.productName
                 tvPriceDetailProduct.text = "${dec.format(this.sellingPrice)} VND"
-                if (!"${dec.format(this.sellingPrice)} VND".equals("${dec.format(this.promotionalPrice.toLong())} VND",true)) {
+                if (!"${dec.format(this.sellingPrice)} VND".equals(
+                        "${dec.format(this.promotionalPrice.toLong())} VND",
+                        true
+                    )
+                ) {
                     tvGiamGiaTien.visibility = View.VISIBLE
                     viewDiviGiamGia.visibility = View.VISIBLE
                     tvGiamGiaTien.text = "${dec.format(this.promotionalPrice.toLong())} VND"
@@ -181,6 +195,28 @@ class DetailProductActivity : BaseActivity() {
 //                }
             }
         }
+    }
+
+    private fun likeItem(productId: String) {
+        Log.e(javaClass.simpleName, "id: $productId")
+        productViewModel.postFavorite("Bearer ${sessionManager.fetchAuthToken()}", productId)
+            .observe(this) {
+                Log.e("TAG", "likeItem: ${sessionManager.fetchAuthToken()}")
+                when (it.status) {
+                    Status.SUCCESS -> {
+                        Toast.makeText(this, "Đã thêm vào yêu thích", Toast.LENGTH_SHORT).show()
+                        loadingDialog.dismissDialog()
+                    }
+                    Status.ERROR -> {
+                        Log.e(UserActivity.TAG, "refreshData: ${it.message} - ${it.data}")
+                        Toast.makeText(this, "Bạn đã yêu thích sản phẩm này rồi", Toast.LENGTH_SHORT).show()
+                        loadingDialog.dismissDialog()
+                    }
+                    Status.LOADING -> {
+                        loadingDialog.startLoadingDialog()
+                    }
+                }
+            }
     }
 
     @SuppressLint("ClickableViewAccessibility")
