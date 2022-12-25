@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".view.activity.DetailContractActivity">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:background="@color/blue_main"
+        android:fontFamily="@font/outfit_bold"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:text="@string/slogan"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/icon_get_quote"
+        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/outfit_bold"
+        android:text="@string/slogan2"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/outfit_light"
+        android:text="@string/des"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/ic_vector_phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView37"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/outfit_bold"
+        android:text="Hotline:\n1900.272737 (028.7777.2737)"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView19"
+        app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_mail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView19"
+        app:tint="@color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/outfit_bold"
+        android:text="Email:\nCool@coolmate.me"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView20"
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+
+    <ImageView
+        android:id="@+id/imgFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/icons_facebook"
+        app:layout_constraintEnd_toStartOf="@+id/imgInstagram"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView20"
+        app:tint="@color/white" />
+
+    <ImageView
+        android:id="@+id/imgInstagram"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/icons8_instagram"
+        app:layout_constraintEnd_toStartOf="@+id/imgYoutube"
+        app:layout_constraintStart_toEndOf="@+id/imgFacebook"
+        app:layout_constraintTop_toBottomOf="@+id/imageView20"
+        app:tint="@color/white" />
+
+    <ImageView
+        android:id="@+id/imgYoutube"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/icons8_youtube"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgInstagram"
+        app:layout_constraintTop_toBottomOf="@+id/imageView20"
+        app:tint="@color/white" />
+</androidx.constraintlayout.widget.ConstraintLayout>

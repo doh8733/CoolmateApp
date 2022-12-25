@@ -108,6 +108,7 @@ class GiamGiaFragment : BaseFragment() {
         }
     }
 
+    val  page = 1
     private fun getData() {
         productViewModel.getProduct(authToken = "Bearer ${sessionManager.fetchAuthToken()}")
             .observe(viewLifecycleOwner) {

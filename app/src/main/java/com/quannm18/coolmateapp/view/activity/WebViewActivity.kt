@@ -23,7 +23,7 @@ class WebViewActivity : BaseActivity() {
             it.getStringExtra("linkUrl")?.let { link->
                 webView.apply {
                     configWebView()
-
+                    webView.settings.javaScriptEnabled = true
                     webViewClient = object : WebViewClient() {
                     @SuppressLint("ResourceAsColor")
                     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
