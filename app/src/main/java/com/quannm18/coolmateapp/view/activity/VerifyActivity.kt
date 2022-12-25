@@ -20,6 +20,7 @@ import com.orhanobut.hawk.Hawk
 import com.quannm18.coolmateapp.R
 import com.quannm18.coolmateapp.base.BaseActivity
 import com.quannm18.coolmateapp.network.auth.SessionManager
+import com.quannm18.coolmateapp.utils.ManagerSaveLocal
 import com.quannm18.coolmateapp.utils.Status
 import com.quannm18.coolmateapp.utils.Status.*
 import com.quannm18.coolmateapp.view.dialog.DialogAsk
@@ -44,7 +45,9 @@ class VerifyActivity : BaseActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var loadingDialog: LoadingDialog
     private lateinit var mForceResendingToken: PhoneAuthProvider.ForceResendingToken
-
+    private val managerSaveLocal: ManagerSaveLocal by lazy {
+        ManagerSaveLocal()
+    }
     override fun layoutID(): Int {
         return R.layout.activity_verify
     }
@@ -214,8 +217,8 @@ class VerifyActivity : BaseActivity() {
         val token = "Bearer " + sessionManager.fetchAuthToken()
         val gender = "" + Hawk.get("GENDER")
         val birthDay = "" + Hawk.get("BIRTHDAY")
-        avatar = Hawk.get("AVATAR")
-        chatLink = Hawk.get("CHATLINK")
+        avatar = managerSaveLocal.getAvatar()
+        chatLink = "${managerSaveLocal.getChatLink()}"
         Log.e("fullName", "getDataAndEdit: $fullName")
         Log.e("password", "getDataAndEdit: $password")
         Log.e("address", "getDataAndEdit: $address")
@@ -246,7 +249,7 @@ class VerifyActivity : BaseActivity() {
                             Toast.makeText(this, "Sửa thông tin thành công", Toast.LENGTH_SHORT).show()
                             loadingDialog.dismissDialog()
                             startActivity(Intent(this,UserActivity::class.java))
-                            finishAffinity()
+                            finish()
                         }
                         loadingDialog.dismissDialog()
                     }

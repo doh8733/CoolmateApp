@@ -56,7 +56,8 @@ class LoginActivity : BaseActivity() {
             when (it) {
                 is ListenerValidate -> {
                     if (it.status != Status.SUCCESS) {
-                        DialogShowValidate(this, it).apply { show()
+                        DialogShowValidate(this, it).apply {
+                            show()
                         }
                     } else {
                         loginViewModel.login(userLogin).observe(this) {
@@ -73,12 +74,18 @@ class LoginActivity : BaseActivity() {
                                                     chkRemember.isChecked,
                                                     userLogin
                                                 )
-                                                managerSaveLocal.savePassword(tilPassword.editText?.text.toString().trim())
+                                                managerSaveLocal.savePassword(
+                                                    tilPassword.editText?.text.toString().trim()
+                                                )
                                                 connectToSendbird(res)
                                             }
                                         } else {
                                             loadingDialog.dismissDialog()
-                                            DialogAsk(this,"Đăng nhập thất bại","Sai tên tài khoản hoặc mật khẩu").show()
+                                            DialogAsk(
+                                                this,
+                                                "Đăng nhập thất bại",
+                                                "Sai tên tài khoản hoặc mật khẩu"
+                                            ).show()
                                         }
                                     } catch (e: Exception) {
                                         e.printStackTrace()
@@ -166,8 +173,16 @@ class LoginActivity : BaseActivity() {
                                 .show()
                             loadingDialog.dismissDialog()
                             //luu y cai nay se luu gui link chanel ddeen man home khi bam nut chat se su dung no
-                            val i = Intent(this, BuyingActivity::class.java)
-                            responseLogin.user?.chatLink?.let { managerSaveLocal.saveChatLink(it) }
+                            val i = Intent(this, HomeActivity::class.java)
+                            responseLogin.user?.chatLink?.let {
+                                managerSaveLocal.saveChatLink(it)
+                                managerSaveLocal
+                                Log.e(TAG, "connectToSendbird: $it")
+                            }
+                            responseLogin.user?.avatar?.let {
+                                managerSaveLocal.saveAvatar(it)
+                                Log.e(TAG, "connectToSendbird: $it")
+                            }
                             startActivity(i)
                         }
                     }

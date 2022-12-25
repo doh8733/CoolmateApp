@@ -13,12 +13,16 @@ class ManagerSaveLocal {
         const val ENABLE_NOTIFICATION = "EnableNotification"
         const val CHAT_LINK = "ChatUrl"
         const val PASS ="PASSWORD"
+        const val AVATAR ="AVATAR"
     }
 
     /**
      * Save
      */
 
+    fun saveAvatar(avatar: String) {
+        Hawk.put(AVATAR, avatar)
+    }
     fun savePaymentMethod(isPayment: Int) {
         Hawk.put(PAYMENT, isPayment)
     }
@@ -83,6 +87,9 @@ class ManagerSaveLocal {
     fun getPassword():String{
         return Hawk.get(PASS)
     }
+    fun getAvatar() :String{
+        return Hawk.get(AVATAR)
+    }
 
     /**
      * DELETE
@@ -117,5 +124,8 @@ class ManagerSaveLocal {
     }
     fun deletePassword():Boolean{
         return Hawk.delete(PASS)
+    }
+    fun deleteAvatar():Boolean {
+       return Hawk.delete(AVATAR)
     }
 }

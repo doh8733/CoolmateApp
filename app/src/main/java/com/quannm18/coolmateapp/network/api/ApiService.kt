@@ -44,10 +44,11 @@ interface ApiService {
     @GET("auth/me")
     suspend fun me(@Header("Authorization") authToken: String): ResponseLogin
 
+    @Multipart
     @POST("users/change-avatar")
     suspend fun changeAvatar(
         @Header("Authorization") authToken: String,
-        @Part media: MultipartBody.Part
+        @Part("file") media: MultipartBody.Part
     ): UserChangeAvatar
 
     @FormUrlEncoded
